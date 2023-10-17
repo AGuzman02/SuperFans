@@ -1,0 +1,17 @@
+[
+    {
+        "label": "Mug",
+        "emoji": "☕️",
+        "details": "Add your any custom mug results in the mydata.json file"
+    },
+    {
+        "label": "Pen",
+        "emoji": "🖊️",
+        "details": "Add your desired pen results in the mydata.json file"
+    },
+    {
+        "label": "Shoe",
+        "emoji": "👟",
+        "details": "Add your desired results for shoes in the mydata.json file"
+    }
+]
