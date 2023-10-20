@@ -1,17 +1,46 @@
 [
     {
-        "label": "Mug",
-        "emoji": "☕️",
-        "details": "Add your any custom mug results in the mydata.json file"
+        "label": "Banana",
+        "emoji": "🍌",
     },
     {
-        "label": "Pen",
-        "emoji": "🖊️",
-        "details": "Add your desired pen results in the mydata.json file"
+        "label": "Brócoli",
+        "emoji": "🥦",
     },
     {
-        "label": "Shoe",
-        "emoji": "👟",
-        "details": "Add your desired results for shoes in the mydata.json file"
-    }
+        "label": "Cebolla",
+        "emoji": "🧅",
+    },
+    {
+        "label": "Fresa",
+        "emoji": "🍓",
+    },
+    {
+        "label": "Huevo",
+        "emoji": "🥚",
+    },
+    {
+        "label": "Limón",
+        "emoji": "🍋",
+    },
+    {
+        "label": "Manzana",
+        "emoji": "🍏",
+    },
+    {
+        "label": "Pan",
+        "emoji": "🥖",
+    },
+    {
+        "label": "Papa",
+        "emoji": "🥔",
+    },
+    {
+        "label": "Uvas",
+        "emoji": "🍇",
+    },
+    {
+        "label": "Zanahoria",
+        "emoji": "🥕",
+    },
 ]

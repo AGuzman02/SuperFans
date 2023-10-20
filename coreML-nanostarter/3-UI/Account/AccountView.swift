@@ -13,7 +13,7 @@ struct AccountView: View {
     
     var body: some View {
         NavigationView{
-            VStack(alignment: .leading){
+            VStack(){
                 HStack{
                     Text("\(ViewModel.name)")
                     Spacer()
@@ -47,15 +47,10 @@ struct AccountView: View {
                 Divider()
                     VStack {
                         SquaresView().environmentObject(ViewModel)
-                            .padding()
- 
-                            NavigationLink(destination: ClassificationView()){
-                                Text("Subir Recetas")
-                                Image(systemName: "plus.app.fill")
-                            }
-                        
+                            .padding(.top)
                     }
                 }
+                                
             }.ignoresSafeArea()
                 .padding()
         }

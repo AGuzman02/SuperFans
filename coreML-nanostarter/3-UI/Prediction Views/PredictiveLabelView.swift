@@ -7,22 +7,29 @@ import SwiftUI
 
 struct PredictiveLabelView: View {
     private(set) var labelData: Classification
+    @State private var isShowingMessage = false
     
     var body: some View {
         
         VStack(alignment: .center) {
-            Text(labelData.label.capitalized)
-                .font(.largeTitle)
             
-            Text(labelData.emoji)
-                .font(.system(size: 100))
-                .padding(.bottom, 5)
+            Button("\(labelData.emoji)"){
+                    isShowingMessage = true
+                }
+                .padding()
+                .background(Circle()
+                    .stroke(lineWidth: 3)
+                    .foregroundColor(Color.white))
+                .font(.system(size: 50))
+            
+        }.alert(isPresented: $isShowingMessage){
+            Alert(title: Text("Carrito"), message: Text("\(labelData.label) se ha añadido al carrito"), dismissButton: .default(Text("OK")))
         }
     }
 }
 
 struct PredictiveLabelView_Previews: PreviewProvider {
     static var previews: some View {
-        PredictiveLabelView(labelData: Classification())
+        PredictiveLabelView(labelData: Classification()).preferredColorScheme(.dark)
     }
 }

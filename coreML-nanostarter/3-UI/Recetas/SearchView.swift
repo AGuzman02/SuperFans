@@ -17,12 +17,15 @@ struct SearchView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Divider()
                     HStack {
                         Image(systemName: "magnifyingglass")
                         TextField("Search", text: $nameSearch)
+                        Spacer()
+                        
+                        Image(systemName: "questionmark.circle")
+                            .padding(.trailing, 10)
                     }.padding(.leading)
-                    Divider().padding(.bottom,10)
+                    .padding(.bottom)
                 
                     ForEach(recetaViewModel.arrRecetas, id: \.self){
                         item in

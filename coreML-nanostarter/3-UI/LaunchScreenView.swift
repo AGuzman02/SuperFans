@@ -38,19 +38,28 @@ struct LaunchScreenView: View {
                         TextField("Username", text: $user) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
                         
                         SecureField("Password", text: $pass)
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).padding([  .leading, .trailing])
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.leading, .trailing])
                         // about page
-                        NavigationLink(destination: AboutView()){
+                        NavigationLink(destination: Contraview()){
                             Text("Olvidé mi contraseña")
                                 .foregroundColor(Color.green)
                         }.padding(.trailing)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         
-                        NavigationLink(destination: MainView()){
-                            Text("Login")
-                        }.isDetailLink(false)
-                        .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
-                        .padding(.bottom)
+                        HStack{
+                            
+                            NavigationLink(destination: MainView()){
+                                Text("Log in")
+                                    .frame(width:65, height: 15)
+                            }.isDetailLink(false)
+                                .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
+                            
+                            NavigationLink(destination: MainView()){
+                                Text("Sign Up")
+                                    .frame(width:65, height: 15)
+                            }.isDetailLink(false)
+                                .buttonStyle(RoundedRectButtonStyle(buttonColor: .green.opacity(0.7)))
+                        }.padding(.vertical,8)
                         
                         Text("Ingresar con:").padding(.bottom)
                         HStack{
@@ -64,12 +73,12 @@ struct LaunchScreenView: View {
                     
                 }
                 .padding()
-                .background(Color.white)
+                .background(Color(UIColor.systemBackground))
                 .cornerRadius(25)
             .shadow(radius: 5)
             }
             .padding()
-        }.ignoresSafeArea()
+        }
         .navigationBarHidden(true)
     }
 }
@@ -78,8 +87,16 @@ struct LaunchScreenView_Previews: PreviewProvider {
     static var previews: some View {
         LaunchScreenView()
             .previewDevice("iPhone SE (3rd generation)")
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        
+        LaunchScreenView()
+            .previewDevice("iPhone SE (3rd generation)")
         
         LaunchScreenView()
             .previewDevice("iPhone 14 Pro Max")
+        
+        LaunchScreenView()
+            .previewDevice("iPhone 14 Pro Max")
+            .preferredColorScheme(.dark)
     }
 }

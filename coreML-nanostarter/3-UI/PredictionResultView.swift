@@ -9,27 +9,12 @@ struct PredictionResultView: View {
     private(set) var labelData: Classification
     
     var body: some View {
-        // TODO: The View that shows classification results - edit the styling below!
         
-        ZStack(alignment: .top) {
-
-        //[OPTIONAL] Edit panel background color here.
-        Color.white
-            .opacity(0.5)
-            .ignoresSafeArea()
-
-            VStack {
+            VStack{
                 //This view displays your prediction. Make edits in PredictiveLabelView file.
                 PredictiveLabelView(labelData: labelData)
 
-                //This view displays your prediction. Make edits in DisplayedContentView file.
-                DisplayedContentView(labelData: labelData)
             }
-            .padding()
-
-
-        }
-
 
     }
 }

@@ -32,15 +32,20 @@ struct MainView: View {
                     Image(systemName: "person.fill")
                 }
         }
-        .accentColor(Color.green)
         .navigationBarHidden(true)
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
+        
         MainView()
             .previewDevice("iPhone 14 Pro Max")
+        
+        MainView()
+            .previewDevice("iPhone 14 Pro Max")
+            .preferredColorScheme(.dark)
+            
         
         MainView()
             .previewDevice("iPhone SE (3rd generation)")

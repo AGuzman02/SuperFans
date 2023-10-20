@@ -11,19 +11,19 @@ class RecetasViewModel : ObservableObject{
     func getReceta (){
         var receta : RecetasModel
         
-        receta = RecetasModel(title: "Carbonara", description: "100kcal", URLVideo: "https://youtu.be/HRaoYuRKBaA?si=yYYPozFVDDYwm9YX", nomimg: "carbonara", numeps: 1076, isFavorite: true)
+        receta = RecetasModel(title: "Carbonara", description: "574kcal", URLVideo: "https://youtu.be/HRaoYuRKBaA?si=yYYPozFVDDYwm9YX", nomimg: "carbonara", numeps: 1076, isFavorite: true)
         arrRecetas.append(receta)
         
-        receta = RecetasModel(title: "Naruto", description: "Ninja anime", URLVideo: "https://youtu.be/4t__wczfpRI?si=WZAPceihBZcUlCMC", nomimg: "narutoimg", numeps: 500, isFavorite: false)
+        receta = RecetasModel(title: "Pay de manzana", description: "237kcal", URLVideo: "https://youtu.be/4t__wczfpRI?si=WZAPceihBZcUlCMC", nomimg: "paymanzana", numeps: 500, isFavorite: false)
         arrRecetas.append(receta)
         
-        receta = RecetasModel(title: "Jujutsu Kaisen", description: "Sorcerers anime", URLVideo: "https://youtu.be/1dDvMEisEC8?si=ng-W-Ug0EwrAddkZ", nomimg: "jjkimg", numeps: 23, isFavorite: false)
+        receta = RecetasModel(title: "Pay de limón", description: "285kcal", URLVideo: "https://youtu.be/1dDvMEisEC8?si=ng-W-Ug0EwrAddkZ", nomimg: "paylimon", numeps: 23, isFavorite: false)
         arrRecetas.append(receta)
         
-        receta = RecetasModel(title: "Bleach", description: "Swordmans anime", URLVideo: "https://youtu.be/wW9TwZdWpjw?si=5cQG3LAKX-lLAOfo", nomimg: "bleachimg", numeps: 13, isFavorite: false)
+        receta = RecetasModel(title: "Licuado de plátano", description: "377kcal", URLVideo: "https://youtu.be/wW9TwZdWpjw?si=5cQG3LAKX-lLAOfo", nomimg: "licplat", numeps: 13, isFavorite: false)
         arrRecetas.append(receta)
         
-        receta = RecetasModel(title: "Attack On Titan", description: "Mecha anime", URLVideo: "https://youtu.be/AgBUP8TJqV8?si=Wz19gKkCZGt84Di6", nomimg: "aotimg", numeps: 30, isFavorite: true)
+        receta = RecetasModel(title: "Chilaquiles", description: "486kcal", URLVideo: "https://youtu.be/AgBUP8TJqV8?si=Wz19gKkCZGt84Di6", nomimg: "chilacos", numeps: 30, isFavorite: true)
         arrRecetas.append(receta)
     }
 }
