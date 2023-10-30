@@ -14,14 +14,42 @@ struct AccSettingsView: View {
     
     var body: some View {
         VStack{
+            
+            
             Form{
+                
+                
                 Section{
                     TextField("Nombre", text: $ViewModel.name)
                     
-                }
-                Section{
-                    Stepper(value: $ViewModel.age, in: 0...100, step:1) {
-                        Text("\(ViewModel.age)")
+                    
+                    HStack{
+                        
+                        Text("Edad:")
+                        
+                        TextField("Edad", value: $ViewModel.age, formatter: NumberFormatter()).keyboardType(.numberPad)
+                            
+                        Stepper("", value: $ViewModel.age, in: 0...120)
+                    }
+                    
+                    HStack {
+                        
+                        Text("Peso:")
+                        
+                        TextField("Peso", value: $ViewModel.weight, formatter: NumberFormatter()).keyboardType(.numberPad)
+                            .frame(width: 25)
+                        
+                        Text("kg")
+                        
+                        Stepper("", value: $ViewModel.weight, in: 0...300)
+                    }
+                    
+                    HStack {
+                        
+                        TextField("Peso", value: $ViewModel.height, formatter: NumberFormatter()).keyboardType(.numberPad)
+                            .frame(width: 25)
+                        
+                        Stepper("Altura: \(ViewModel.height , specifier: "%.2f") m", value: $ViewModel.height, in: 0...2.52, step: 0.01)
                     }
                 }
             }
