@@ -12,7 +12,7 @@ struct DisplayedContentView: View {
         
         
         HStack {
-            Text(labelData.details)
+            Text(labelData.label)
                 .multilineTextAlignment(.center)
         }
         .padding(15)

@@ -22,30 +22,50 @@ struct NutritionInfo: View {
 
             HStack
             {
-                Image("carbonara") //apartado1
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
-                Image("carbonara") //apartado2
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
+                ZStack{
+                    NavigationLink(destination: CaloriasView()){
+                        Image("calorias") //calorias
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                    }
+                    Text("CALORIAS")
+                }
+                ZStack{
+                    NavigationLink(destination: CarbsView()){
+                        Image("carbs") //carbohidratos
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                    }
+                    Text("CARBOHIDRATOS")
+                }
             }
             .padding(10)
             HStack
             {
-                Image("carbonara") //apartado 3
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
-                Image("carbonara") //apartado 4
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(10)
-                    .shadow(radius: 5) 
+                ZStack{
+                    NavigationLink(destination: ProteinasView()){
+                        Image("proteinas") //proteinas
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                    }
+                    Text("PROTEINAS")
+                }
+                ZStack{
+                    NavigationLink(destination: GrasasView()){
+                        Image("grasas") //grasas
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                    }
+                    Text("GRASAS")
+                }
             }
             .padding(10)
         }
