@@ -21,9 +21,10 @@ struct SearchView: View {
                         Image(systemName: "magnifyingglass")
                         TextField("Search", text: $nameSearch)
                         Spacer()
-                        
-                        Image(systemName: "questionmark.circle")
-                            .padding(.trailing, 10)
+                        NavigationLink(destination: NutritionInfo()){
+                            Image(systemName: "questionmark.circle")
+                                .padding(.trailing, 10)
+                        }
                     }.padding(.leading)
                     .padding(.bottom)
                 
