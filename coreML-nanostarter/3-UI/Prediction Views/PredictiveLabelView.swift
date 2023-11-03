@@ -10,20 +10,28 @@ struct PredictiveLabelView: View {
     @State private var isShowingMessage = false
     
     var body: some View {
-        
-        VStack(alignment: .center) {
+
+        VStack(alignment: .center){
             
             Button("\(labelData.emoji)"){
                     isShowingMessage = true
                 }
                 .padding()
                 .background(Circle()
-                    .stroke(lineWidth: 3)
-                    .foregroundColor(Color.white))
+                .stroke(lineWidth: 3)
+                .foregroundColor(Color.white))
                 .font(.system(size: 50))
             
-        }.alert(isPresented: $isShowingMessage){
-            Alert(title: Text("Carrito"), message: Text("\(labelData.label) se ha añadido al carrito"), dismissButton: .default(Text("OK")))
+        }.popover(isPresented: $isShowingMessage){
+            VStack{
+                Text("\(labelData.label) se ha añadido al carrito")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 20)
+                
+                YoutubeView(videoID: labelData.video).aspectRatio(contentMode: .fit)
+                
+            }
         }
     }
 }
