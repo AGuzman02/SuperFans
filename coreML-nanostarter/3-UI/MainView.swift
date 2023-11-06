@@ -22,11 +22,18 @@ struct MainView: View {
                 .tabItem{
                     Image(systemName: "magnifyingglass")
                 }
+            
+            NutritionInfo()
+                .tabItem{
+                    Image(systemName: "questionmark")
+                }
+            
             RecetasView()
                 .environmentObject(recetaVM)
                 .tabItem {
-                    Image(systemName: "list.bullet.clipboard.fill")
+                    Image(systemName: "star.fill")
                 }
+            
             AccountView()
                 .tabItem {
                     Image(systemName: "person.fill")

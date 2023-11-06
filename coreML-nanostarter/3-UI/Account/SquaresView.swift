@@ -76,7 +76,7 @@ struct SquaresView: View {
                     .cornerRadius(25)
                     .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 10)
                 }
-            }.padding()
+            }.padding(.horizontal)
         }
         }
 }

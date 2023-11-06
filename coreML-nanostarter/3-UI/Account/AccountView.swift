@@ -60,9 +60,11 @@ struct AccountView: View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
-            .previewDevice("iPhone 14 Pro Max")
+        .previewDevice("iPhone 14 Pro Max")
+        .environmentObject(AccountViewModel())
         
         AccountView()
+            .environmentObject(AccountViewModel())
             .previewDevice("iPhone SE (3rd generation)")
     }
 }

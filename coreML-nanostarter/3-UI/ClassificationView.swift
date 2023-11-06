@@ -15,16 +15,25 @@ struct ClassificationView: View {
         let predictionLabel = predictionStatus.topLabel
 
             GeometryReader { geo in
-                VStack {
-                    LiveCameraRepresentable() {
-                        predictionStatus.setLivePrediction(with: $0, label: $1, confidence: $2)
-                    }.ignoresSafeArea()
-                                        
-                    PredictionResultView(labelData: classifierViewModel.getPredictionData(label: predictionLabel))
-                        .frame(width: geo.size.width, height: geo.size.height * 0.25)
-                }
-                .onAppear(perform: classifierViewModel.loadJSON)
+ 
+                    VStack {
+                        
+                        ZStack{
+                            
+                            LiveCameraRepresentable() {
+                                predictionStatus.setLivePrediction(with: $0, label: $1, confidence: $2)
+                            }.ignoresSafeArea()
+                            
+                            RoundedRectangle(cornerRadius: 20).stroke(Color.green, lineWidth: 2)
+                                .frame(width: geo.size.width/1.3, height: geo.size.height/2.4)
+                        }
+                        
+                        PredictionResultView(labelData: classifierViewModel.getPredictionData(label: predictionLabel))
+                            .frame(width: geo.size.width, height: geo.size.height * 0.25)
+                    }
+                    .onAppear(perform: classifierViewModel.loadJSON)
                 .frame(width: geo.size.width, height: geo.size.height)
+                
             }
     }
 }

@@ -14,17 +14,18 @@ struct Receta: View {
     var body: some View {
         
         let screen = UIScreen.main.bounds
-        NavigationLink(destination: IngredientesDetailView()){
+            
+        NavigationLink(destination: IngredientesDetailView(receta: receta)){
             ZStack {
                 Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75))
-                    .frame(width: screen.width - screen.width * 0.05, height: screen.height - screen.height * 0.79)
+                .frame(width: screen.width - screen.width * 0.05, height: screen.height - screen.height * 0.79)
                     .cornerRadius(15)
                     .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
                 HStack(){
                     Image(receta.nomimg)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: screen.width * 0.45)
+                    .frame(width: screen.width * 0.45)
                         .cornerRadius(25)
                         .frame(maxHeight: 150)
                         .padding(.leading,6)
@@ -46,8 +47,13 @@ struct Receta: View {
                 }
                 .padding(.horizontal)
             }
+            
         }
+        //NavigationLink(destination: IngredientesDetailView()){
+        //let screen = UIScreen.main.bounds
+  
     }
+    //}
 }
 
 struct Receta_Previews: PreviewProvider {

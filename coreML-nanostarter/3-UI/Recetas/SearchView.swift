@@ -9,32 +9,33 @@ import SwiftUI
 
 struct SearchView: View {
     
-    
     @EnvironmentObject var recetaViewModel : RecetasViewModel
     @State var nameSearch : String = ""
+    
+    var filteredMeals: [RecetasModel] {
+            guard !nameSearch.isEmpty else { return recetaViewModel.arrRecetas }
+            return recetaViewModel.arrRecetas.filter { receta in
+                receta.title.lowercased().contains(nameSearch.lowercased())
+            }
+        }
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                        TextField("Search", text: $nameSearch)
-                        Spacer()
-                        
-                        Image(systemName: "questionmark.circle")
-                            .padding(.trailing, 10)
-                    }.padding(.leading)
-                    .padding(.bottom)
-                
-                    ForEach(recetaViewModel.arrRecetas, id: \.self){
+                    
+                    ForEach(filteredMeals, id: \.self){
                         item in
                         Receta(receta: item)
                     }
+        
                 }
+                .navigationTitle("Recetas")
+                .searchable(text: $nameSearch, prompt: "Busca Recetas")
             }
         }
     }
+    
 }
 
 struct SearchView_Previews: PreviewProvider {

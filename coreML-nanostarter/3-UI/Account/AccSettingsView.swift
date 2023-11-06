@@ -15,18 +15,20 @@ struct AccSettingsView: View {
     var body: some View {
         VStack{
             
-            
             Form{
                 
-                
                 Section{
-                    TextField("Nombre", text: $ViewModel.name)
-                    
+                    HStack {
+                        
+                        Text("Nombre:")
+                        
+                        TextField("Nombre", text: $ViewModel.name)
+                    }
                     
                     HStack{
                         
-                        Text("Edad:")
-                        
+                        Text("Edad:").frame(width: 50, alignment: .leading)
+                                                
                         TextField("Edad", value: $ViewModel.age, formatter: NumberFormatter()).keyboardType(.numberPad)
                             
                         Stepper("", value: $ViewModel.age, in: 0...120)
@@ -34,10 +36,10 @@ struct AccSettingsView: View {
                     
                     HStack {
                         
-                        Text("Peso:")
-                        
+                        Text("Peso:").frame(width: 50, alignment: .leading)
+                                                
                         TextField("Peso", value: $ViewModel.weight, formatter: NumberFormatter()).keyboardType(.numberPad)
-                            .frame(width: 25)
+                            .frame(width: 35)
                         
                         Text("kg")
                         
@@ -46,10 +48,15 @@ struct AccSettingsView: View {
                     
                     HStack {
                         
-                        TextField("Peso", value: $ViewModel.height, formatter: NumberFormatter()).keyboardType(.numberPad)
-                            .frame(width: 25)
+                        Text("Altura:").frame(width: 50, alignment: .leading)
                         
-                        Stepper("Altura: \(ViewModel.height , specifier: "%.2f") m", value: $ViewModel.height, in: 0...2.52, step: 0.01)
+                        TextField("Altura", value: $ViewModel.height, format: .number)
+                            .keyboardType(.decimalPad)
+                            .frame(width: 35)
+                        
+                        Text("m")
+                        
+                        Stepper("", value: $ViewModel.height, in: 0...2.52, step: 0.01)
                     }
                 }
             }
@@ -61,5 +68,8 @@ struct AccSettingsView: View {
 struct AccSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         AccSettingsView().environmentObject(AccountViewModel())
+        
+        AccSettingsView().environmentObject(AccountViewModel())
+            .previewDevice("iPhone SE (3rd generation)")
     }
 }

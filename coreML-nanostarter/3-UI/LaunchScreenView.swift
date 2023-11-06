@@ -13,73 +13,75 @@ struct LaunchScreenView: View {
     @State private var pass: String = ""
     
     var body: some View {
-        ZStack {
-
-            Color(hex: 0xb0f2c2, opacity: 1.0)
-                .ignoresSafeArea()
-
+        NavigationView {
             ZStack {
-                VStack {
-                    
-                    Text("SuperFans")
-                        .font(.system(size: 40))
-                        .fontWeight(.bold)
-                        .padding()
-                        .foregroundColor(.green)
-                    
-                    Image(systemName: "fork.knife.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 250)
-                    
-                    Divider()
-                    
-                    VStack{
-                        TextField("Username", text: $user) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
+
+                Color(hex: 0xb0f2c2, opacity: 1.0)
+                    .ignoresSafeArea()
+
+                ZStack {
+                    VStack {
                         
-                        SecureField("Password", text: $pass)
-                            .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.leading, .trailing])
-                        // about page
-                        NavigationLink(destination: Contraview()){
-                            Text("Olvidé mi contraseña")
-                                .foregroundColor(Color.green)
-                        }.padding(.trailing)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        Text("SuperFans")
+                            .font(.system(size: 40))
+                            .fontWeight(.bold)
+                            .foregroundColor(.green)
+                            .padding(.top)
                         
-                        HStack{
+                        Image(systemName: "fork.knife.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 250)
+                        
+                        Divider()
+                        
+                        VStack{
+                            TextField("Username", text: $user) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
                             
-                            NavigationLink(destination: MainView()){
-                                Text("Log in")
-                                    .frame(width:65, height: 15)
-                            }.isDetailLink(false)
-                                .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
+                            SecureField("Password", text: $pass)
+                                .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.leading, .trailing])
+                            // about page
+                            NavigationLink(destination: Contraview()){
+                                Text("Olvidé mi contraseña")
+                                    .foregroundColor(Color.green)
+                            }.padding(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                             
-                            NavigationLink(destination: MainView()){
-                                Text("Sign Up")
-                                    .frame(width:65, height: 15)
-                            }.isDetailLink(false)
-                                .buttonStyle(RoundedRectButtonStyle(buttonColor: .green.opacity(0.7)))
-                        }.padding(.vertical,8)
+                            HStack{
+                                
+                                NavigationLink(destination: MainView()){
+                                    Text("Log in")
+                                        .frame(width:65, height: 15)
+                                }.isDetailLink(false)
+                                    .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
+                                
+                                NavigationLink(destination: SignUpView()){
+                                    Text("Sign Up")
+                                        .frame(width:65, height: 15)
+                                }.isDetailLink(false)
+                                    .buttonStyle(RoundedRectButtonStyle(buttonColor: .green.opacity(0.7)))
+                            }.padding(.vertical,8)
+                            
+                            Text("Ingresar con:").padding(.bottom)
+                            HStack{
+                                Image(systemName: "apple.logo").padding(.trailing)
+                                Image(systemName: "envelope.fill")
+                            }.padding(.bottom)
+                        }
+                        .background(Color(UIColor.secondarySystemBackground))
+                        .cornerRadius(10)
+                        .padding(.top)
                         
-                        Text("Ingresar con:").padding(.bottom)
-                        HStack{
-                            Image(systemName: "apple.logo").padding(.trailing)
-                            Image(systemName: "envelope.fill")
-                        }.padding(.bottom)
                     }
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(10)
-                    .padding(.top)
-                    
+                    .padding()
+                    .background(Color(UIColor.systemBackground))
+                    .cornerRadius(25)
+                .shadow(radius: 5)
                 }
                 .padding()
-                .background(Color(UIColor.systemBackground))
-                .cornerRadius(25)
-            .shadow(radius: 5)
             }
-            .padding()
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
     }
 }
 
