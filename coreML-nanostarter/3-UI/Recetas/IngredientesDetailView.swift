@@ -17,8 +17,28 @@ struct IngredientesDetailView: View {
     var body: some View {
         VStack{
             
-            HStack {
-                AsyncImage(url: URL(string: "\(receta.nomimg)")){
+            HStack{
+                
+                Spacer()
+                
+                Text(receta.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                Spacer()
+                
+                Image(systemName: receta.isFavorite ? "star.fill" : "star")
+                    .foregroundColor(.green)
+                    .font(.system(size:25))
+                    .onTapGesture {
+                        recetaViewModel.arrRecetas[recetaViewModel.arrRecetas.firstIndex(of: receta) ?? 0].isFavorite.toggle()
+                    }
+                
+                Spacer()
+                
+            }.padding(.top)
+            
+            AsyncImage(url: URL(string: "\(receta.nomimg)")){
                     phase in if let image = phase.image {
                         image
                             .resizable()
@@ -29,20 +49,14 @@ struct IngredientesDetailView: View {
                         Text("No imagen").foregroundColor(.black)
                     }
                     
-                    
-                }
-                
-                Image(systemName: receta.isFavorite ? "star.fill" : "star")
-                    .onTapGesture {
-                        recetaViewModel.arrRecetas[recetaViewModel.arrRecetas.firstIndex(of: receta) ?? 0].isFavorite.toggle()
-                    }
-            }.padding()
+            }.padding(.bottom)
                 
             Text("Ingredientes")
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(.green)
                 .padding(.bottom, 10)
+            
+            Divider()
             
             List {
                 ForEach(ingredientesVM.arrIngredientes) { item in
@@ -70,6 +84,9 @@ struct IngredientesDetailView: View {
         static var previews: some View {
         
             IngredientesDetailView(receta: RecetasModel.defaultReceta)
+            
+            IngredientesDetailView(receta: RecetasModel.defaultReceta)
+                .previewDevice("iPhone SE (3rd generation)")
                 
         }
     }
