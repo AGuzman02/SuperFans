@@ -29,7 +29,9 @@ struct PredictiveLabelView: View {
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
                 
-                YoutubeView(videoID: labelData.video).aspectRatio(contentMode: .fit)
+                YoutubeView(videoID: labelData.video)
+                    .padding()
+                    .aspectRatio(contentMode: .fit)
                 
             }
         }

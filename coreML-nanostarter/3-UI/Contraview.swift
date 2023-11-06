@@ -9,7 +9,34 @@ import SwiftUI
 
 struct Contraview: View {
     var body: some View {
-        Text("Después podrás recuperar tu contraseña.")
+        ZStack {
+            
+            Color(hex: 0xb0f2c2, opacity: 1.0)
+                .ignoresSafeArea()
+            
+            ZStack {
+                VStack {
+                    
+                    Text("Recuperar Contraseña")
+                        .font(.system(size: 25))
+                        .fontWeight(.bold)
+                        .padding()
+                        .foregroundColor(.green)
+                    
+                    
+                    Divider()
+                    
+                }
+                .background(Color(UIColor.secondarySystemBackground))
+                .cornerRadius(10)
+                
+            }
+            .padding()
+            .background(Color(UIColor.systemBackground))
+            .cornerRadius(25)
+            .shadow(radius: 5)
+            .padding()
+        }
     }
 }
 

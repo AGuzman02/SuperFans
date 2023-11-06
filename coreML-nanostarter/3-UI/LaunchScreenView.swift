@@ -89,10 +89,10 @@ struct LaunchScreenView_Previews: PreviewProvider {
     static var previews: some View {
         LaunchScreenView()
             .previewDevice("iPhone SE (3rd generation)")
-            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
         
         LaunchScreenView()
             .previewDevice("iPhone SE (3rd generation)")
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
         
         LaunchScreenView()
             .previewDevice("iPhone 14 Pro Max")

@@ -22,14 +22,21 @@ struct Receta: View {
                     .cornerRadius(15)
                     .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
                 HStack(){
-                    Image(receta.nomimg)
-                        .resizable()
-                        .scaledToFit()
-                    .frame(width: screen.width * 0.45)
-                        .cornerRadius(25)
-                        .frame(maxHeight: 150)
-                        .padding(.leading,6)
-                        .shadow(radius: 5, x: 0, y: 5)
+                    AsyncImage(url: URL(string: "\(receta.nomimg)")){
+                        phase in if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: screen.width * 0.45)
+                                .cornerRadius(25)
+                                .frame(maxHeight: 150)
+                                .padding(.leading,6)
+                                .shadow(radius: 5, x: 0, y: 5)
+                        } else if phase.error != nil {
+                            Text("No imagen").foregroundColor(.black)
+                        }
+                    }
+                        
                     
                     Spacer()
                     
@@ -49,8 +56,6 @@ struct Receta: View {
             }
             
         }
-        //NavigationLink(destination: IngredientesDetailView()){
-        //let screen = UIScreen.main.bounds
   
     }
     //}

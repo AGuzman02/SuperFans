@@ -9,6 +9,9 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    @State private var user: String = ""
+    @State private var pass: String = ""
+    
     var body: some View {
         ZStack {
             
@@ -18,24 +21,45 @@ struct SignUpView: View {
             ZStack {
                 VStack {
                     
-                    Text("Recuperar Contraseña")
-                        .font(.system(size: 25))
+                    Text("SuperFans")
+                        .font(.system(size: 40))
                         .fontWeight(.bold)
-                        .padding()
                         .foregroundColor(.green)
+                        .padding(.top)
                     
+                    Image(systemName: "fork.knife.circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 250)
                     
                     Divider()
                     
+                    VStack{
+                        TextField("Username", text: $user) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
+                        
+                        SecureField("Password", text: $pass)
+                            .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.leading, .trailing])
+                        
+                        HStack{
+                            
+                            NavigationLink(destination: MainView()){
+                                Text("Sign Up")
+                                    .frame(width:65, height: 15)
+                            }.isDetailLink(false)
+                                .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
+                        }.padding(.vertical)
+                        
+                    }
+                    .background(Color(UIColor.secondarySystemBackground))
+                    .cornerRadius(10)
+                    .padding(.top)
+                    
                 }
-                .background(Color(UIColor.secondarySystemBackground))
-                .cornerRadius(10)
-                
+                .padding()
+                .background(Color(UIColor.systemBackground))
+                .cornerRadius(25)
+                .shadow(radius: 5)
             }
-            .padding()
-            .background(Color(UIColor.systemBackground))
-            .cornerRadius(25)
-            .shadow(radius: 5)
             .padding()
         }
     }

@@ -15,13 +15,19 @@ struct IngredientesDetailView: View {
     
     var body: some View {
         VStack{
-            Image(receta.nomimg)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200)
-                .cornerRadius(10)
-            //.padding(.vertical, 20)
-            //.aspectRatio(contentMode: .fit)
+            
+            AsyncImage(url: URL(string: "\(receta.nomimg)")){
+                phase in if let image = phase.image {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200)
+                        .cornerRadius(10)
+                } else if phase.error != nil {
+                    Text("No imagen").foregroundColor(.black)
+                }
+            }.padding()
+                
             Text("Ingredientes")
                 .font(.title)
                 .fontWeight(.bold)

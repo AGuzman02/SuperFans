@@ -18,5 +18,5 @@ struct RecetasModel : Identifiable, Equatable, Hashable{
 }
 
 extension RecetasModel {
-    public static var defaultReceta = RecetasModel(title: "Carbonara", description: "100kcal", URLVideo: "https://youtu.be/HRaoYuRKBaA?si=yYYPozFVDDYwm9YX", nomimg: "carbonara", numeps: 1076, isFavorite: true)
+    public static var defaultReceta = RecetasModel(title: "Carbonara", description: "100kcal", URLVideo: "https://youtu.be/HRaoYuRKBaA?si=yYYPozFVDDYwm9YX", nomimg: "https://i.blogs.es/8819e1/carbonara-rec/1366_2000.jpg", numeps: 1076, isFavorite: true)
 }
