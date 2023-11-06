@@ -10,22 +10,32 @@ import SwiftUI
 struct IngredientesDetailView: View {
     
     @StateObject var ingredientesVM = IngredientesViewModel()
+    @EnvironmentObject var recetaViewModel : RecetasViewModel
 
     let receta : RecetasModel
     
     var body: some View {
         VStack{
             
-            AsyncImage(url: URL(string: "\(receta.nomimg)")){
-                phase in if let image = phase.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200)
-                        .cornerRadius(10)
-                } else if phase.error != nil {
-                    Text("No imagen").foregroundColor(.black)
+            HStack {
+                AsyncImage(url: URL(string: "\(receta.nomimg)")){
+                    phase in if let image = phase.image {
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200)
+                            .cornerRadius(10)
+                    } else if phase.error != nil {
+                        Text("No imagen").foregroundColor(.black)
+                    }
+                    
+                    
                 }
+                
+                Image(systemName: receta.isFavorite ? "star.fill" : "star")
+                    .onTapGesture {
+                        recetaViewModel.arrRecetas[recetaViewModel.arrRecetas.firstIndex(of: receta) ?? 0].isFavorite.toggle()
+                    }
             }.padding()
                 
             Text("Ingredientes")
