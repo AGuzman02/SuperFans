@@ -11,7 +11,6 @@ struct AccSettingsView: View {
     
     @EnvironmentObject var ViewModel : AccountViewModel
     
-    
     var body: some View {
         VStack{
             

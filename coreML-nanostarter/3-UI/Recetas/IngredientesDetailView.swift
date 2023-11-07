@@ -46,7 +46,7 @@ struct IngredientesDetailView: View {
                             .frame(width: 200)
                             .cornerRadius(10)
                     } else if phase.error != nil {
-                        Text("No imagen").foregroundColor(.black)
+                        Text("No hay imagen").foregroundColor(.black)
                     }
                     
             }.padding(.bottom)

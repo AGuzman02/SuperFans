@@ -42,7 +42,7 @@ struct SignUpView: View {
                         
                         HStack{
                             
-                            NavigationLink(destination: MainView()){
+                            NavigationLink(destination: LaunchScreenView()){
                                 Text("Sign Up")
                                     .frame(width:65, height: 15)
                             }.isDetailLink(false)

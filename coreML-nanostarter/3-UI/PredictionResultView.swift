@@ -21,7 +21,7 @@ struct PredictionResultView: View {
 
 struct PredictionResultView_Previews: PreviewProvider {
     static var previews: some View {
-        PredictionResultView(labelData: Classification())
+        PredictionResultView(labelData: Classification()).environmentObject(cartViewModel())
     }
 }
 

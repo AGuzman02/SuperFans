@@ -22,16 +22,19 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
-                    
-                    ForEach(filteredMeals, id: \.self){
-                        item in
-                        Receta(receta: item)
+                    VStack {
+                        NavigationLink(destination: cartView()){
+                            Image(systemName: "cart")
+                        }
+                        
+                        ForEach(filteredMeals, id: \.self){
+                            item in
+                            Receta(receta: item)
+                        }
+            
                     }
-        
-                }
-                .navigationTitle("Recetas")
-                .searchable(text: $nameSearch, prompt: "Busca Recetas")
+                    .navigationTitle("Recetas")
+                    .searchable(text: $nameSearch, prompt: "Busca Recetas")
             }
         }
     }

@@ -41,10 +41,14 @@ struct ClassificationView: View {
 struct ClassificationView_Previews: PreviewProvider {
     static var previews: some View {
         ClassificationView()
-            .previewDevice("iPhone 14 Pro Max").environmentObject(PredictionStatus())
+            .previewDevice("iPhone 14 Pro Max")
+            .environmentObject(PredictionStatus())
+            .environmentObject(cartViewModel())
         
         ClassificationView()
-            .previewDevice("iPhone SE (3rd generation)").environmentObject(PredictionStatus())
+            .previewDevice("iPhone SE (3rd generation)")
+            .environmentObject(PredictionStatus())
+            .environmentObject(cartViewModel())
             
         
     }
