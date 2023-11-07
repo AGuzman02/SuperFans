@@ -31,8 +31,8 @@ struct PredictiveLabelView: View {
             VStack{
                 Text("\(labelData.label) se ha añadido al carrito")
                     .font(.title)
-                    .fontWeight(.bold)
                     .padding(.bottom, 20)
+                    .padding(.top)
                 
                 YoutubeView(videoID: labelData.video)
                     .padding()
@@ -56,7 +56,7 @@ struct PredictiveLabelView: View {
                         .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 10)
                     }
                 }
-            }.padding(.top)
+            }
         }
     }
 
