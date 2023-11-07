@@ -18,22 +18,27 @@ struct ClassificationView: View {
             GeometryReader { geo in
      
                         VStack {
-                            
-                            HStack{
-                                
-                                Spacer()
-                                
-                                NavigationLink(destination: cartView()){
-                                    Image(systemName: "cart.fill")
-                                        .font(.system(size:40))
-                                }
-                            }.padding(.trailing)
+
                             
                             ZStack{
                                 
                                 LiveCameraRepresentable() {
                                     predictionStatus.setLivePrediction(with: $0, label: $1, confidence: $2)
                                 }.ignoresSafeArea()
+                                
+                                VStack {
+                                    HStack{
+                                        
+                                        Spacer()
+                                        
+                                        NavigationLink(destination: cartView()){
+                                            Image(systemName: "cart.fill")
+                                                .font(.system(size:40))
+                                        }
+                                    }.padding(.trailing)
+                                    
+                                    Spacer()
+                                }
                                 
                                 RoundedRectangle(cornerRadius: 20).stroke(Color.green, lineWidth: 2)
                                     .frame(width: geo.size.width/1.3, height: geo.size.height/2.4)
