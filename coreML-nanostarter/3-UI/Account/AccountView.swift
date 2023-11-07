@@ -10,12 +10,17 @@ import SwiftUI
 struct AccountView: View {
     
     @StateObject private var ViewModel = AccountViewModel()
+    //@StateObject var perfilesVM = PerfilesViewModel()
+    @StateObject var viewModel = PerfilesViewModel()
     
     var body: some View {
+        
         NavigationView{
+            
             VStack(){
                 HStack{
-                    Text("\(ViewModel.name)")
+                    //Text("First Name: \(viewModel.perfil.first?.fname ?? "")")
+                    Text("\(viewModel.perfil.first?.fname ?? "")")
                     Spacer()
                     Image(systemName: "person.crop.square.fill")
                 }
@@ -48,6 +53,13 @@ struct AccountView: View {
                     VStack {
                         SquaresView().environmentObject(ViewModel)
                             .padding(.top)
+                    }
+                }
+                .task {
+                    do {
+                        try await viewModel.getPerfilData()
+                    } catch {
+                        print("Error: \(error.localizedDescription)")
                     }
                 }
                                 

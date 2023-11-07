@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NutritionInfo: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         VStack
         {
             Image("platobuencomer1")
@@ -24,23 +24,37 @@ struct NutritionInfo: View {
             {
                 ZStack{
                     NavigationLink(destination: CaloriasView()){
-                        Image("calorias") //calorias
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
+                        VStack{
+                            Image("calorias") //calorias
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(10)
+                                .shadow(radius: 5)
+                                .overlay(alignment:
+                                        .topLeading, content: {
+                                            Text("CALORIAS")
+                                                .padding()
+                                        }
+                                )
+                        }
                     }
-                    Text("CALORIAS")
                 }
                 ZStack{
                     NavigationLink(destination: CarbsView()){
-                        Image("carbs") //carbohidratos
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
+                        VStack{
+                            Image("carbs") //carbohidratos
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(10)
+                                .shadow(radius: 5)
+                                .overlay(alignment:
+                                        .topLeading, content: {
+                                            Text("CARBOHIDRATOS")
+                                                .padding()
+                                        }
+                                )
+                        }
                     }
-                    Text("CARBOHIDRATOS")
                 }
             }
             .padding(10)
@@ -48,23 +62,37 @@ struct NutritionInfo: View {
             {
                 ZStack{
                     NavigationLink(destination: ProteinasView()){
-                        Image("proteinas") //proteinas
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
+                        VStack{
+                            Image("proteinas") //proteinas
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(10)
+                                .shadow(radius: 5)
+                                .overlay(alignment:
+                                        .topLeading, content: {
+                                            Text("PROTEINAS")
+                                                .padding()
+                                        }
+                                )
+                        }
                     }
-                    Text("PROTEINAS")
                 }
                 ZStack{
                     NavigationLink(destination: GrasasView()){
-                        Image("grasas") //grasas
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
+                        VStack {
+                            Image("grasas") //grasas
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(10)
+                                .shadow(radius: 5)
+                                .overlay(alignment:
+                                        .topLeading, content: {
+                                            Text("PROTEINAS")
+                                                .padding()
+                                        }
+                                )
+                        }
                     }
-                    Text("GRASAS")
                 }
             }
             .padding(10)

@@ -9,17 +9,18 @@ import Foundation
 
 import SwiftUI
 
-class IngredientesViewModel : ObservableObject {
-    @Published var arrIngredientes = [IngredientesModel]()
+class PerfilesViewModel : ObservableObject {
+    @Published var perfil = [PerfilModel]()
+    @Published var testIDPerfil = 1
     
-    func getIngredientesData() async throws
+    func getPerfilData() async throws
     {
-
-        guard let url = URL(string: "https://api-superfans.onrender.com/ingredientes")
+        guard let url = URL(string: "https://api-superfans.onrender.com/users/perfiles/1")
         else{   //entra al else si la url es invalida
             print("invalid url")
             return
         }
+        print(url)
         
         let urlRequest=URLRequest(url: url)
         
@@ -30,13 +31,14 @@ class IngredientesViewModel : ObservableObject {
             return
         }
         
-        let result = try JSONDecoder().decode(ResponseData.self, from: data)
+        let result = try JSONDecoder().decode(ResponseData2.self, from: data)
         
         print(result)
         DispatchQueue.main.async {
-            self.arrIngredientes = result.ingredientes
+            self.perfil = result.perfil
         }
-        
-        //print (result)
+        print(url)
+        print (result)
     }
 }
+

@@ -10,9 +10,30 @@ import SwiftUI
 struct AccSettingsView: View {
     
     @EnvironmentObject var ViewModel : AccountViewModel
+    @StateObject var perfilesVM = PerfilesViewModel()
+   // @StateObject var viewModel = PerfilesViewModel()
+
     
     
     var body: some View {
+        /*VStack {
+                    Text("First Name: \(viewModel.perfil.first?.fname ?? "")")
+                    Text("Last Name: \(viewModel.perfil.first?.lname ?? "")")
+                    Text("Age: \(viewModel.perfil.first?.age ?? 0)")
+                    Text("Gender: \(viewModel.perfil.first?.gender == true ? "Male" : "Female")")
+                    Text("Height: \(viewModel.perfil.first?.height ?? 0)")
+                    Text("Weight: \(viewModel.perfil.first?.weight ?? 0.0)")
+                    Text("User ID: \(viewModel.perfil.first?.iduser ?? 0)")
+                    Text("Profile ID: \(viewModel.perfil.first?.idperfil ?? 0)")
+                }
+                .task {
+                    do {
+                        try await viewModel.getPerfilData()
+                    } catch {
+                        print("Error: \(error.localizedDescription)")
+                    }
+                }*/
+
         VStack{
             
             
@@ -21,6 +42,8 @@ struct AccSettingsView: View {
                 
                 Section{
                     TextField("Nombre", text: $ViewModel.name)
+                    //TextField("Nombre", text: $perfilesVM.perfil.first?.fname ?? "")
+
                     
                     
                     HStack{
@@ -51,8 +74,18 @@ struct AccSettingsView: View {
                         
                         Stepper("Altura: \(ViewModel.height , specifier: "%.2f") m", value: $ViewModel.height, in: 0...2.52, step: 0.01)
                     }
+                    
+                    .task {
+                        do {
+                            try await perfilesVM.getPerfilData()
+                        } catch {
+                            print("Error: \(error.localizedDescription)")
+                        }
+                    }
                 }
+
             }
+
             
         }
     }
