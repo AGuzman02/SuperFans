@@ -23,9 +23,6 @@ struct SearchView: View {
         NavigationView {
             ScrollView {
                     VStack {
-                        NavigationLink(destination: cartView()){
-                            Image(systemName: "cart")
-                        }
                         
                         ForEach(filteredMeals, id: \.self){
                             item in

@@ -21,7 +21,6 @@ struct MainView: View {
                     Image(systemName: "house.fill")
                 }
             SearchView()
-                .environmentObject(cartVM)
                 .environmentObject(recetaVM)
                 .tabItem{
                     Image(systemName: "magnifyingglass")
@@ -61,5 +60,9 @@ struct MainView_Previews: PreviewProvider {
         
         MainView()
             .previewDevice("iPhone SE (3rd generation)")
+        
+        MainView()
+            .previewDevice("iPhone SE (3rd generation)")
+            .preferredColorScheme(.dark)
     }
 }

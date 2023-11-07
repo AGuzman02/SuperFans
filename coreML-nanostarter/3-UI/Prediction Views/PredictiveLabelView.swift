@@ -27,7 +27,7 @@ struct PredictiveLabelView: View {
             .foregroundColor(Color.white))
             .font(.system(size: 50))
             
-        }.popover(isPresented: $isShowingMessage, arrowEdge: .top){
+        }.popover(isPresented: $isShowingMessage){
             VStack{
                 Text("\(labelData.label) se ha añadido al carrito")
                     .font(.title)
@@ -38,17 +38,28 @@ struct PredictiveLabelView: View {
                     .padding()
                     .aspectRatio(contentMode: .fit)
                 
-                List {
-                    ForEach(cartVM.arrCart, id: \.self)
-                    { item in
-                        Text(item)
+                NavigationView{
+                    NavigationLink(destination: cartView()){
+                        VStack{
+                            
+                            Text("Ver Carrito")
+                                .font(.system(size:35))
+                                .foregroundColor(Color.white)
+                                .padding(.top,5)
+
+                        }
+                    }
+                        .ignoresSafeArea()
+                        .padding()
+                        .background(Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75)))
+                        .cornerRadius(25)
+                        .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 10)
                     }
                 }
-                
             }.padding(.top)
         }
     }
-}
+
 
 struct PredictiveLabelView_Previews: PreviewProvider {
     static var previews: some View {
