@@ -9,7 +9,6 @@ struct PredictiveLabelView: View {
     private(set) var labelData: Classification
     @State private var isShowingMessage = false
     @EnvironmentObject var cartVM: cartViewModel
-
     
     var body: some View {
 
@@ -39,7 +38,7 @@ struct PredictiveLabelView: View {
                     .aspectRatio(contentMode: .fit)
                 
                 NavigationView{
-                    NavigationLink(destination: cartView()){
+                    NavigationLink(destination: cartView().environmentObject(cartVM)){
                         VStack{
                             
                             Text("Ver Carrito")

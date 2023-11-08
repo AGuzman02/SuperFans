@@ -11,15 +11,18 @@ struct MainView: View {
     
     @StateObject var recetaVM = RecetasViewModel()
     @StateObject var cartVM = cartViewModel()
+    @StateObject var classifierVM = ClassifierViewModel()
+
     
     var body: some View {
         TabView{
             ClassificationView()
                 .environmentObject(PredictionStatus())
                 .environmentObject(cartVM)
+                .environmentObject(classifierVM)
                 .tabItem{
                     Image(systemName: "house.fill")
-                }
+                } //Al salir del popover en el telefono crashea la app
             SearchView()
                 .environmentObject(recetaVM)
                 .tabItem{

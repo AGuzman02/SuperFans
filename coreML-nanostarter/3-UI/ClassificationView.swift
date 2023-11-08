@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ClassificationView: View {
     @EnvironmentObject var predictionStatus: PredictionStatus
-    @StateObject var classifierViewModel = ClassifierViewModel()
+    @EnvironmentObject var classifierVM : ClassifierViewModel
+    @EnvironmentObject var cartVM : cartViewModel
     
     var body: some View {
         let predictionLabel = predictionStatus.topLabel
@@ -31,7 +32,7 @@ struct ClassificationView: View {
                                         
                                         Spacer()
                                         
-                                        NavigationLink(destination: cartView()){
+                                        NavigationLink(destination: cartView().environmentObject(cartVM)){
                                             Image(systemName: "cart.fill")
                                                 .font(.system(size:40))
                                         }
@@ -44,11 +45,11 @@ struct ClassificationView: View {
                                     .frame(width: geo.size.width/1.3, height: geo.size.height/2.4)
                             }
                             
-                            PredictionResultView(labelData: classifierViewModel.getPredictionData(label: predictionLabel))
+                            PredictionResultView(labelData: classifierVM.getPredictionData(label: predictionLabel))
                                 .frame(width: geo.size.width, height: geo.size.height * 0.25)
                                 
                         }
-                        .onAppear(perform: classifierViewModel.loadJSON)
+                        .onAppear(perform: classifierVM.loadJSON)
                     .frame(width: geo.size.width, height: geo.size.height)
             }
         }
@@ -61,12 +62,14 @@ struct ClassificationView_Previews: PreviewProvider {
             .previewDevice("iPhone 14 Pro Max")
             .environmentObject(PredictionStatus())
             .environmentObject(cartViewModel())
+            .environmentObject(ClassifierViewModel())
             .preferredColorScheme(.dark)
         
         ClassificationView()
             .previewDevice("iPhone SE (3rd generation)")
             .environmentObject(PredictionStatus())
             .environmentObject(cartViewModel())
+            .environmentObject(ClassifierViewModel())
             
         
     }
