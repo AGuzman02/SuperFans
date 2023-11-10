@@ -53,6 +53,7 @@ struct SignUpView: View {
                                     }
                                 }
                             }
+                            .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
                         }.padding(.vertical)
                         
                     }

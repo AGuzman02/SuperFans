@@ -51,6 +51,7 @@ struct ProteinasView: View {
                 Text("4. Regulación del equilibrio ácido-base y el transporte de oxígeno.")
                 Text("5. Participación en el sistema inmunológico.")
                 Divider()
+                /*
                 Text("Alimentos ricos en proteínas:")
                     .font(.title)
 
@@ -68,6 +69,7 @@ struct ProteinasView: View {
                         }
                     }
                 }
+                 */
 
             }
             .padding()

@@ -24,7 +24,6 @@
 		A5D6918A27EA466400101791 /* LiveCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6918827EA466400101791 /* LiveCameraViewController.swift */; };
 		A5D6918D27EA48B100101791 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6918C27EA48B100101791 /* Constants.swift */; };
 		A5D6919027EA48F900101791 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6918F27EA48F900101791 /* Helpers.swift */; };
-		D6592DAE2AFDCED7008A5FDC /* UsernameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DAD2AFDCED7008A5FDC /* UsernameModel.swift */; };
 		D6592DB02AFDCEFC008A5FDC /* PerfilModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DAF2AFDCEFC008A5FDC /* PerfilModel.swift */; };
 		D6592DB22AFDCF14008A5FDC /* UpdateNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */; };
 		D6592DB42AFDCF2F008A5FDC /* PerfilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */; };
@@ -80,7 +79,6 @@
 		A5D6918C27EA48B100101791 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5D6918F27EA48F900101791 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A5D6919127EA5B4D00101791 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6592DAD2AFDCED7008A5FDC /* UsernameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameModel.swift; sourceTree = "<group>"; };
 		D6592DAF2AFDCEFC008A5FDC /* PerfilModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilModel.swift; sourceTree = "<group>"; };
 		D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameViewModel.swift; sourceTree = "<group>"; };
 		D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilesViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				3E1EE08F2A7426150019CE24 /* PredictiveLabelView.swift */,
+				FB4D0C332AF568D600D48D07 /* YTVideo.swift */,
 			);
 			path = "Prediction Views";
 			sourceTree = "<group>";
@@ -141,6 +140,7 @@
 				A5236B45280A1EE500DC9D7F /* LaunchScreenView.swift */,
 				FB107C152AD5D08000B067CC /* MainView.swift */,
 				FB6134352AF1737C00D702F3 /* SignUpView.swift */,
+				D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */,
 				FBAAEB6D2AE1E71A004B22BE /* Contraview.swift */,
 				A5236B47280A1F0700DC9D7F /* ClassificationView.swift */,
 				A5287C96286CF66800A14D68 /* PredictionResultView.swift */,
@@ -148,8 +148,6 @@
 				FB6DE0722AD9C51D00FA3526 /* Recetas */,
 				FB6DE06F2AD9B96300FA3526 /* Account */,
 				3E1EE08D2A7426150019CE24 /* Prediction Views */,
-				FB4D0C332AF568D600D48D07 /* YTVideo.swift */,
-				D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */,
 			);
 			path = "3-UI";
 			sourceTree = "<group>";
@@ -257,7 +255,6 @@
 				FB651A1C2AFD86890034BED3 /* RecetasModel2.swift */,
 				FB7AF9AC2AE0568A00205347 /* UserModel.swift */,
 				FB26D3A22AE1D7940047DAA1 /* IngredientesModel.swift */,
-				D6592DAD2AFDCED7008A5FDC /* UsernameModel.swift */,
 				D6592DAF2AFDCEFC008A5FDC /* PerfilModel.swift */,
 			);
 			path = "Model}";
@@ -267,14 +264,14 @@
 			isa = PBXGroup;
 			children = (
 				FB107C1D2AD5D3E500B067CC /* AccountView.swift */,
+				D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */,
+				FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */,
 				FB107C192AD5D20B00B067CC /* SquaresView.swift */,
 				FB72166E2AD8A97600963E4B /* AccSettingsView.swift */,
+				D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */,
 				FBAAEB6F2AE1E799004B22BE /* SubirRecetaView.swift */,
 				FB72166C2AD8A95000963E4B /* AlergiasView.swift */,
 				FB6DE0702AD9B99600FA3526 /* AccountViewModel.swift */,
-				FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */,
-				D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */,
-				D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -406,7 +403,6 @@
 				FB72166D2AD8A95000963E4B /* AlergiasView.swift in Sources */,
 				FB107C1A2AD5D20B00B067CC /* SquaresView.swift in Sources */,
 				A5236B48280A1F0700DC9D7F /* ClassificationView.swift in Sources */,
-				D6592DAE2AFDCED7008A5FDC /* UsernameModel.swift in Sources */,
 				FB72166F2AD8A97700963E4B /* AccSettingsView.swift in Sources */,
 				FB6DE06E2AD9B83600FA3526 /* AccountModel.swift in Sources */,
 				FB5F65282AFAB639000E6A33 /* cartViewModel.swift in Sources */,

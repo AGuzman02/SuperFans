@@ -34,7 +34,7 @@ struct AccountView: View {
                     VStack{
                         Text("Peso").padding(.bottom, 11)
                         //Text("\(ViewModel.weight)kg")
-                        Text("\(perfilModel.perfil.first?.weight ?? 0)kg")
+                        Text(String(format: "%.1fkg", perfilModel.perfil.first?.weight ?? 0))
                     }
                     Divider().frame(height: 90)
                     VStack{
