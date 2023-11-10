@@ -10,7 +10,6 @@ import SwiftUI
 struct IngredientesDetailView: View {
     
     @StateObject var ingredientesVM = IngredientesViewModel()
-    @EnvironmentObject var recetaViewModel : RecetasViewModel
 
     let receta : RecetasModel
     
@@ -21,24 +20,25 @@ struct IngredientesDetailView: View {
                 
                 Spacer()
                 
-                Text(receta.title)
+                Text(receta.recetaname ?? "")
                     .font(.title)
                     .fontWeight(.bold)
                 
                 Spacer()
-                
+                /*
                 Image(systemName: receta.isFavorite ? "star.fill" : "star")
                     .foregroundColor(.green)
                     .font(.system(size:25))
                     .onTapGesture {
-                        recetaViewModel.arrRecetas[recetaViewModel.arrRecetas.firstIndex(of: receta) ?? 0].isFavorite.toggle()
+                        recetaViewModel.arrReceta[recetaViewModel.arrReceta.firstIndex(of: receta) ?? 0].isFavorite.toggle()
                     }
+                */
                 
                 Spacer()
                 
             }.padding(.top)
             
-            AsyncImage(url: URL(string: "\(receta.nomimg)")){
+            AsyncImage(url: URL(string: "\(String(describing: receta.img))")){
                     phase in if let image = phase.image {
                         image
                             .resizable()
@@ -83,9 +83,11 @@ struct IngredientesDetailView: View {
     struct IngredientesDetailView_Previews: PreviewProvider {
         static var previews: some View {
         
-            IngredientesDetailView(receta: RecetasModel.defaultReceta)
+            IngredientesDetailView(receta: RecetasModel(recetaname: "Buffalo Chicken Tacos", tiempo: 15, img: "tacos.jpg"))
+                .environmentObject(RecetasViewModel())
             
-            IngredientesDetailView(receta: RecetasModel.defaultReceta)
+            IngredientesDetailView(receta: RecetasModel(recetaname: "Buffalo Chicken Tacos", tiempo: 15, img: "tacos.jpg"))
+                .environmentObject(RecetasViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 
         }

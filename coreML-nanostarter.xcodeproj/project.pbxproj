@@ -36,10 +36,10 @@
 		FB5F65262AFAB5B5000E6A33 /* cartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F65252AFAB5B5000E6A33 /* cartView.swift */; };
 		FB5F65282AFAB639000E6A33 /* cartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F65272AFAB639000E6A33 /* cartViewModel.swift */; };
 		FB6134362AF1737C00D702F3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6134352AF1737C00D702F3 /* SignUpView.swift */; };
+		FB651A1B2AFD86610034BED3 /* RecetaViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB651A1A2AFD86610034BED3 /* RecetaViewModel2.swift */; };
+		FB651A1D2AFD86890034BED3 /* RecetasModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB651A1C2AFD86890034BED3 /* RecetasModel2.swift */; };
 		FB6DE06E2AD9B83600FA3526 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DE06D2AD9B83600FA3526 /* AccountModel.swift */; };
 		FB6DE0712AD9B99600FA3526 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DE0702AD9B99600FA3526 /* AccountViewModel.swift */; };
-		FB6DE0742AD9C58800FA3526 /* RecetasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DE0732AD9C58700FA3526 /* RecetasModel.swift */; };
-		FB6DE0762AD9C5DB00FA3526 /* RecetaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DE0752AD9C5DB00FA3526 /* RecetaViewModel.swift */; };
 		FB6DE0782AD9C70200FA3526 /* Receta.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DE0772AD9C70200FA3526 /* Receta.swift */; };
 		FB72166D2AD8A95000963E4B /* AlergiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB72166C2AD8A95000963E4B /* AlergiasView.swift */; };
 		FB72166F2AD8A97700963E4B /* AccSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB72166E2AD8A97600963E4B /* AccSettingsView.swift */; };
@@ -87,10 +87,10 @@
 		FB5F65252AFAB5B5000E6A33 /* cartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartView.swift; sourceTree = "<group>"; };
 		FB5F65272AFAB639000E6A33 /* cartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartViewModel.swift; sourceTree = "<group>"; };
 		FB6134352AF1737C00D702F3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		FB651A1A2AFD86610034BED3 /* RecetaViewModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaViewModel2.swift; sourceTree = "<group>"; };
+		FB651A1C2AFD86890034BED3 /* RecetasModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasModel2.swift; sourceTree = "<group>"; };
 		FB6DE06D2AD9B83600FA3526 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		FB6DE0702AD9B99600FA3526 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
-		FB6DE0732AD9C58700FA3526 /* RecetasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetasModel.swift; sourceTree = "<group>"; };
-		FB6DE0752AD9C5DB00FA3526 /* RecetaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetaViewModel.swift; sourceTree = "<group>"; };
 		FB6DE0772AD9C70200FA3526 /* Receta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receta.swift; sourceTree = "<group>"; };
 		FB72166C2AD8A95000963E4B /* AlergiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlergiasView.swift; sourceTree = "<group>"; };
 		FB72166E2AD8A97600963E4B /* AccSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccSettingsView.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				FB6DE06D2AD9B83600FA3526 /* AccountModel.swift */,
-				FB6DE0732AD9C58700FA3526 /* RecetasModel.swift */,
+				FB651A1C2AFD86890034BED3 /* RecetasModel2.swift */,
 				FB7AF9AC2AE0568A00205347 /* UserModel.swift */,
 				FB26D3A22AE1D7940047DAA1 /* IngredientesModel.swift */,
 			);
@@ -256,10 +256,10 @@
 				FB107C1D2AD5D3E500B067CC /* AccountView.swift */,
 				FB107C192AD5D20B00B067CC /* SquaresView.swift */,
 				FB72166E2AD8A97600963E4B /* AccSettingsView.swift */,
+				FBAAEB6F2AE1E799004B22BE /* SubirRecetaView.swift */,
 				FB72166C2AD8A95000963E4B /* AlergiasView.swift */,
 				FB6DE0702AD9B99600FA3526 /* AccountViewModel.swift */,
 				FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */,
-				FBAAEB6F2AE1E799004B22BE /* SubirRecetaView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -269,8 +269,8 @@
 			children = (
 				FB107C172AD5D13F00B067CC /* SearchView.swift */,
 				FB107C1B2AD5D3D700B067CC /* RecetasView.swift */,
-				FB6DE0752AD9C5DB00FA3526 /* RecetaViewModel.swift */,
 				FB6DE0772AD9C70200FA3526 /* Receta.swift */,
+				FB651A1A2AFD86610034BED3 /* RecetaViewModel2.swift */,
 				FB26D3A42AE1D7C20047DAA1 /* IngredientesDetailView.swift */,
 				FB26D3A02AE1D77C0047DAA1 /* IngredientesViewModel.swift */,
 				FB5F65252AFAB5B5000E6A33 /* cartView.swift */,
@@ -362,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB651A1D2AFD86890034BED3 /* RecetasModel2.swift in Sources */,
 				A5D6917327EA441E00101791 /* ContentView.swift in Sources */,
 				FB107C182AD5D13F00B067CC /* SearchView.swift in Sources */,
 				FB5F65262AFAB5B5000E6A33 /* cartView.swift in Sources */,
@@ -377,14 +378,13 @@
 				3E1EE0912A7426150019CE24 /* PredictiveLabelView.swift in Sources */,
 				FB4D0C342AF568D600D48D07 /* YTVideo.swift in Sources */,
 				FB26D3A12AE1D77C0047DAA1 /* IngredientesViewModel.swift in Sources */,
-				FB6DE0742AD9C58800FA3526 /* RecetasModel.swift in Sources */,
 				FBF9346C2AF455DB009B3016 /* NutritionInfo.swift in Sources */,
 				FBF934652AF45561009B3016 /* ProteinasView.swift in Sources */,
-				FB6DE0762AD9C5DB00FA3526 /* RecetaViewModel.swift in Sources */,
 				FB6DE0782AD9C70200FA3526 /* Receta.swift in Sources */,
 				A5287C97286CF66800A14D68 /* PredictionResultView.swift in Sources */,
 				FB107C1C2AD5D3D700B067CC /* RecetasView.swift in Sources */,
 				A5D6917127EA441E00101791 /* coreML_starterApp.swift in Sources */,
+				FB651A1B2AFD86610034BED3 /* RecetaViewModel2.swift in Sources */,
 				A5D6918227EA44C300101791 /* PredictionStatus.swift in Sources */,
 				FB72166D2AD8A95000963E4B /* AlergiasView.swift in Sources */,
 				FB107C1A2AD5D20B00B067CC /* SquaresView.swift in Sources */,

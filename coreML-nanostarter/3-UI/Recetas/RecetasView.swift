@@ -11,22 +11,27 @@ struct RecetasView: View {
     
     
     @EnvironmentObject var recetaViewModel : RecetasViewModel
+    /*
     var favoriteRecetas : [RecetasModel]{
-        recetaViewModel.arrRecetas.filter { receta in
+        recetaViewModel.arrReceta.filter { receta in
             (receta.isFavorite)
         }
     }
-    @State var nameSearch : String = ""
+     */
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
+                    /*
                     ForEach(favoriteRecetas, id: \.self){
                         item in
                         Receta(receta: item)
+                     
                     }
+                     */
                 }
+                .navigationTitle("Favoritos")
             }
         }
     }

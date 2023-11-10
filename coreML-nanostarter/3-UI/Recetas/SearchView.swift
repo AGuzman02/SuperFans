@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @EnvironmentObject var recetaViewModel : RecetasViewModel
+    @EnvironmentObject var recetaVM : RecetasViewModel
     @State var nameSearch : String = ""
     
     var filteredMeals: [RecetasModel] {
-            guard !nameSearch.isEmpty else { return recetaViewModel.arrRecetas }
-            return recetaViewModel.arrRecetas.filter { receta in
-                receta.title.lowercased().contains(nameSearch.lowercased())
+            guard !nameSearch.isEmpty else { return recetaVM.arrReceta }
+            return recetaVM.arrReceta.filter { receta in
+                receta.recetaname!.lowercased().contains(nameSearch.lowercased())
             }
         }
     
@@ -28,10 +28,18 @@ struct SearchView: View {
                             item in
                             Receta(receta: item)
                         }
-            
+                                                
                     }
                     .navigationTitle("Recetas")
                     .searchable(text: $nameSearch, prompt: "Busca Recetas")
+                    .task{
+                        do{
+                            try await recetaVM.getRecetas()
+                        } catch {
+                            print("Error getting")
+                        }
+                    }
+                    
             }
         }
     }
