@@ -62,7 +62,7 @@ struct AccSettingsView: View {
                 }
             }
             TextField("Nombre", text: $name) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
-            Button("Sign Up"){
+            Button("Cambiar nombre"){
                 Task{
                     do{
                         try await updateVM.updateUser(name: name)

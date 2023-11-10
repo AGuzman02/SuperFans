@@ -44,7 +44,6 @@ struct ProteinasView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
-
                 Text("1. Construcción y reparación de tejidos.")
                 Text("2. Funciones enzimáticas y hormonales.")
                 Text("3. Transporte y almacenamiento de moléculas.")
@@ -53,6 +52,8 @@ struct ProteinasView: View {
                 Divider()
                 Text("Alimentos ricos en proteínas:")
                     .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 20)
 
                 ScrollView(.horizontal) {
                     HStack(spacing: 20) {

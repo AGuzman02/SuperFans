@@ -45,6 +45,7 @@ struct CaloriasView: View {
                 Text("¿Cuantas calorias necesitas?")
                     .font(.title)
                     .fontWeight(.bold)
+                Text("El consumo de calorias depende de ...")
                 HStack (alignment: .center, spacing: 20) {
                     ZStack {
                         Rectangle()
