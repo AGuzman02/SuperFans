@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    @StateObject var registerVM = SignUpViewModel()
     @State private var user: String = ""
     @State private var pass: String = ""
     
@@ -42,11 +43,16 @@ struct SignUpView: View {
                         
                         HStack{
                             
-                            NavigationLink(destination: LaunchScreenView()){
-                                Text("Sign Up")
-                                    .frame(width:65, height: 15)
-                            }.isDetailLink(false)
-                                .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
+                            Button("Sign Up"){
+                                Task{
+                                    do{
+                                        try await registerVM.registerUser(username: user, password: pass)
+                                    }
+                                    catch {
+                                        print("Registration error: \(error)")
+                                    }
+                                }
+                            }
                         }.padding(.vertical)
                         
                     }

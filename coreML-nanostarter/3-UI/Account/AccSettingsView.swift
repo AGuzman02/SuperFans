@@ -10,7 +10,9 @@ import SwiftUI
 struct AccSettingsView: View {
     
     @EnvironmentObject var ViewModel : AccountViewModel
-    
+    @State private var name: String = ""
+    @StateObject var updateVM = UpdateNameViewModel()
+
     var body: some View {
         VStack{
             
@@ -59,6 +61,18 @@ struct AccSettingsView: View {
                     }
                 }
             }
+            TextField("Nombre", text: $name) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
+            Button("Sign Up"){
+                Task{
+                    do{
+                        try await updateVM.updateUser(name: name)
+                    }
+                    catch {
+                        print("Registration error: \(error)")
+                    }
+                }
+            }
+            
             
         }
     }

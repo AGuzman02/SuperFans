@@ -10,12 +10,14 @@ import SwiftUI
 struct AccountView: View {
     
     @StateObject private var ViewModel = AccountViewModel()
+    @StateObject var perfilModel = PerfilesViewModel()
     
     var body: some View {
         NavigationView{
             VStack(){
                 HStack{
-                    Text("\(ViewModel.name)")
+                    //Text("\(ViewModel.name)")
+                    Text("\(perfilModel.perfil.first?.fname ?? "")")
                     Spacer()
                     Image(systemName: "person.crop.square.fill")
                 }
@@ -25,12 +27,14 @@ struct AccountView: View {
                     Spacer()
                     VStack{
                         Text("Edad").padding(.bottom, 11)
-                        Text("\(ViewModel.age)")
+                        //Text("\(ViewModel.age)")
+                        Text("\(perfilModel.perfil.first?.age ?? 0)")
                     }
                     Divider().frame(height: 90)
                     VStack{
                         Text("Peso").padding(.bottom, 11)
-                        Text("\(ViewModel.weight)kg")
+                        //Text("\(ViewModel.weight)kg")
+                        Text("\(perfilModel.perfil.first?.weight ?? 0)kg")
                     }
                     Divider().frame(height: 90)
                     VStack{
@@ -50,6 +54,15 @@ struct AccountView: View {
                             .padding(.top)
                     }
                 }
+                
+                .task{
+                        do{
+                            try await perfilModel.getPerfilData()
+                        }
+                        catch {
+                            print("Registration error: \(error)")
+                        }
+                    }
                                 
             }.ignoresSafeArea()
                 .padding()
