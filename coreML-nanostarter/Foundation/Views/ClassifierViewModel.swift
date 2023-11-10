@@ -13,16 +13,18 @@ final class ClassifierViewModel: ObservableObject {
     
     func loadJSON() {
         print("load JSON")
-        if let url = Bundle.main.url(forResource: "mydata", withExtension: "json") {
-            do {
-                let jsonData = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                classifierData = try decoder.decode([Classification].self, from: jsonData)
-            } catch {
-                print(error)
+        DispatchQueue.main.async {
+            if let url = Bundle.main.url(forResource: "mydata", withExtension: "json") {
+                do {
+                    let jsonData = try Data(contentsOf: url)
+                    let decoder = JSONDecoder()
+                    self.classifierData = try decoder.decode([Classification].self, from: jsonData)
+                } catch {
+                    print(error)
+                }
+            } else {
+                print("could not find data")
             }
-        } else {
-            print("could not find data")
         }
     }
     
