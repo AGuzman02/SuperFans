@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ResponseData2 : Decodable {
+struct SingleProfile : Decodable {
     var perfil : [PerfilModel]
 }
 

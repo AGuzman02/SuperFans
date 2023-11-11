@@ -11,6 +11,8 @@ struct AccSettingsView: View {
     
     @EnvironmentObject var ViewModel : AccountViewModel
     @State private var name: String = ""
+    @State private var weight: Double = 0.0
+    @StateObject var updateWeightVM = UpdateWeightViewModel()
     @StateObject var updateVM = UpdateNameViewModel()
 
     var body: some View {
@@ -61,20 +63,50 @@ struct AccSettingsView: View {
                     }
                 }
             }
-            TextField("Nombre", text: $name) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
-            Button("Cambiar nombre"){
-                Task{
-                    do{
-                        try await updateVM.updateUser(name: name)
+            VStack(alignment: .leading, spacing: 20) {
+                // Sección para cambiar el nombre
+                HStack {
+                    TextField("Nombre", text: $name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding([.top, .leading, .trailing])
+
+                    Button("Cambiar nombre") {
+                        Task {
+                            do {
+                                try await updateVM.updateUser(name: name)
+                            } catch {
+                                print("Error al cambiar el nombre: \(error)")
+                            }
+                        }
                     }
-                    catch {
-                        print("Registration error: \(error)")
+                }
+
+                //Sección para cambiar el peso
+                //UPDATE (PUT) Erick y Jeannette
+                VStack(alignment: .leading, spacing: 10) {
+                    //Text("Peso: \(weight) kg")
+
+                    Stepper(value: $weight, in: 0...100, step: 1.0) {
+                        //Text("Cambiar Peso")
+                        Text("Peso: \(weight) kg")
+                    }
+                    .padding([.leading, .trailing])
+
+                    Button("Guardar Cambios") {
+                        Task {
+                            do {
+                                try await updateWeightVM.updateUserWeight(weight: weight)
+                            } catch {
+                                print("Error al actualizar el peso: \(error)")
+                            }
+                        }
                     }
                 }
             }
+            .padding([.top, .leading, .trailing])
+
             
-            
-        }
+        }.padding()
     }
 }
 

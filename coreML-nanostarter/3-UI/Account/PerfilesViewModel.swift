@@ -7,14 +7,15 @@
 
 import Foundation
 import SwiftUI
-        
+
+//GET Erick y Jeannette
 class PerfilesViewModel : ObservableObject {
     
     @Published var perfil = [PerfilModel]()
     @Published var testIDPerfil = 1
     
     func getPerfilData() async throws {
-        guard let url = URL(string: "https://api-superfans.onrender.com/users/perfiles/1") else {
+        guard let url = URL(string: "https://api-superfans.onrender.com/users/perfiles/\(testIDPerfil)") else {
             print("Invalid URL")
             return
         }
@@ -27,7 +28,7 @@ class PerfilesViewModel : ObservableObject {
             return
         }
         
-        let result = try JSONDecoder().decode(ResponseData2.self, from: data)
+        let result = try JSONDecoder().decode(SingleProfile.self, from: data)
         
         print(result)
         DispatchQueue.main.async {

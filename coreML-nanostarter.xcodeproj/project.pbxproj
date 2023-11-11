@@ -29,6 +29,8 @@
 		D6592DB22AFDCF14008A5FDC /* UpdateNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */; };
 		D6592DB42AFDCF2F008A5FDC /* PerfilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */; };
 		D6592DB62AFDCF50008A5FDC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */; };
+		D681291B2AFEA56B00D53477 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681291A2AFEA56B00D53477 /* LogInViewModel.swift */; };
+		D68711692B00091600B13346 /* UpdateWeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68711682B00091600B13346 /* UpdateWeightViewModel.swift */; };
 		FB107C162AD5D08000B067CC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB107C152AD5D08000B067CC /* MainView.swift */; };
 		FB107C182AD5D13F00B067CC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB107C172AD5D13F00B067CC /* SearchView.swift */; };
 		FB107C1A2AD5D20B00B067CC /* SquaresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB107C192AD5D20B00B067CC /* SquaresView.swift */; };
@@ -85,6 +87,8 @@
 		D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameViewModel.swift; sourceTree = "<group>"; };
 		D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilesViewModel.swift; sourceTree = "<group>"; };
 		D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		D681291A2AFEA56B00D53477 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		D68711682B00091600B13346 /* UpdateWeightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeightViewModel.swift; sourceTree = "<group>"; };
 		FB107C152AD5D08000B067CC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FB107C172AD5D13F00B067CC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		FB107C192AD5D20B00B067CC /* SquaresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquaresView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				3E1EE08D2A7426150019CE24 /* Prediction Views */,
 				FB4D0C332AF568D600D48D07 /* YTVideo.swift */,
 				D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */,
+				D681291A2AFEA56B00D53477 /* LogInViewModel.swift */,
 			);
 			path = "3-UI";
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */,
 				D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */,
 				D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */,
+				D68711682B00091600B13346 /* UpdateWeightViewModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				FB26D3A52AE1D7C20047DAA1 /* IngredientesDetailView.swift in Sources */,
 				A5D6919027EA48F900101791 /* Helpers.swift in Sources */,
 				A5D6918927EA466400101791 /* LiveCameraRepresentable.swift in Sources */,
+				D681291B2AFEA56B00D53477 /* LogInViewModel.swift in Sources */,
 				3E1EE0912A7426150019CE24 /* PredictiveLabelView.swift in Sources */,
 				FB4D0C342AF568D600D48D07 /* YTVideo.swift in Sources */,
 				FB26D3A12AE1D77C0047DAA1 /* IngredientesViewModel.swift in Sources */,
@@ -417,6 +424,7 @@
 				A5D6918D27EA48B100101791 /* Constants.swift in Sources */,
 				A562F07327EE7E7A00602D4E /* Classification.swift in Sources */,
 				FB6DE0712AD9B99600FA3526 /* AccountViewModel.swift in Sources */,
+				D68711692B00091600B13346 /* UpdateWeightViewModel.swift in Sources */,
 				FBF934632AF45557009B3016 /* CaloriasView.swift in Sources */,
 				FB7AF9B12AE06EE800205347 /* Comidasmodel.mlmodel in Sources */,
 				FB6134362AF1737C00D702F3 /* SignUpView.swift in Sources */,
