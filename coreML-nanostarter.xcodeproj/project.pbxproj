@@ -133,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				3E1EE08F2A7426150019CE24 /* PredictiveLabelView.swift */,
-				FB4D0C332AF568D600D48D07 /* YTVideo.swift */,
 			);
 			path = "Prediction Views";
 			sourceTree = "<group>";
@@ -144,7 +143,6 @@
 				A5236B45280A1EE500DC9D7F /* LaunchScreenView.swift */,
 				FB107C152AD5D08000B067CC /* MainView.swift */,
 				FB6134352AF1737C00D702F3 /* SignUpView.swift */,
-				D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */,
 				FBAAEB6D2AE1E71A004B22BE /* Contraview.swift */,
 				A5236B47280A1F0700DC9D7F /* ClassificationView.swift */,
 				A5287C96286CF66800A14D68 /* PredictionResultView.swift */,
@@ -155,7 +153,6 @@
 				FB4D0C332AF568D600D48D07 /* YTVideo.swift */,
 				D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */,
 				D681291A2AFEA56B00D53477 /* LogInViewModel.swift */,
-
 			);
 			path = "3-UI";
 			sourceTree = "<group>";
@@ -272,11 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				FB107C1D2AD5D3E500B067CC /* AccountView.swift */,
-				D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */,
-				FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */,
 				FB107C192AD5D20B00B067CC /* SquaresView.swift */,
 				FB72166E2AD8A97600963E4B /* AccSettingsView.swift */,
-				D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */,
 				FBAAEB6F2AE1E799004B22BE /* SubirRecetaView.swift */,
 				FB72166C2AD8A95000963E4B /* AlergiasView.swift */,
 				FB6DE0702AD9B99600FA3526 /* AccountViewModel.swift */,

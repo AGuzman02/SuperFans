@@ -51,13 +51,13 @@ struct ProteinasView: View {
                 Text("5. Participación en el sistema inmunológico.")
                 Divider()
                 
-                
+                /*
                 Text("Alimentos ricos en proteínas:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
 
-                /*
+                
                 Text("Alimentos ricos en proteínas:")
                     .font(.title)
                 
