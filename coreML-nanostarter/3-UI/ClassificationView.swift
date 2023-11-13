@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ClassificationView: View {
     @EnvironmentObject var predictionStatus: PredictionStatus
-    @EnvironmentObject var classifierViewModel : ClassifierViewModel
-    
+    @StateObject var classifierViewModel = ClassifierViewModel()
+
     var body: some View {
         let predictionLabel = predictionStatus.topLabel
 
