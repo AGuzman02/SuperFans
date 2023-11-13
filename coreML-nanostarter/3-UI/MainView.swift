@@ -10,13 +10,12 @@ import SwiftUI
 struct MainView: View {
     
     @StateObject var recetaVM = RecetasViewModel()
-    @StateObject var cartVM = cartViewModel()
     
     var body: some View {
         TabView{
             ClassificationView()
                 .environmentObject(PredictionStatus())
-                .environmentObject(cartVM)
+                .environmentObject(cartViewModel())
                 .tabItem{
                     Image(systemName: "house.fill")
                 }

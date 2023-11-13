@@ -8,7 +8,7 @@ import SwiftUI
 struct PredictiveLabelView: View {
     private(set) var labelData: Classification
     @State private var isShowingMessage = false
-    @EnvironmentObject var cartVM: cartViewModel
+    @EnvironmentObject var cartVM : cartViewModel
     @EnvironmentObject var classifierViewModel : ClassifierViewModel
 
     
@@ -19,12 +19,11 @@ struct PredictiveLabelView: View {
             Button("\(labelData.emoji)"){
                 
                 DispatchQueue.global().async{
-                    cartVM.addIng(labelData.label)
-                    cartVM.addVid(labelData.video)
-                }
-                
-                DispatchQueue.main.async{
-                    isShowingMessage = true
+                    DispatchQueue.main.async{
+                        cartVM.addIng(labelData.label)
+                        cartVM.addVid(labelData.video)
+                        isShowingMessage = true
+                    }
                 }
             }
             .padding()
@@ -34,7 +33,9 @@ struct PredictiveLabelView: View {
             .font(.system(size: 50))
             
             
-        }.popover(isPresented: $isShowingMessage){
+        }
+        
+        .popover(isPresented: $isShowingMessage){
             VStack{
                 
                 
@@ -67,6 +68,7 @@ struct PredictiveLabelView: View {
                     }
                 }
             }
+         
         }
     }
 
