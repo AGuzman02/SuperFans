@@ -20,9 +20,6 @@ struct PredictiveLabelView: View {
                 
                 DispatchQueue.global().async{
                     cartVM.addIng(labelData.label)
-                }
-                
-                DispatchQueue.global().async{
                     cartVM.addVid(labelData.video)
                 }
                 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ClassificationView: View {
     @EnvironmentObject var predictionStatus: PredictionStatus
-    @StateObject var classifierViewModel = ClassifierViewModel()
+    @EnvironmentObject var classifierViewModel : ClassifierViewModel
     
     var body: some View {
         let predictionLabel = predictionStatus.topLabel
@@ -61,12 +61,14 @@ struct ClassificationView_Previews: PreviewProvider {
             .previewDevice("iPhone 14 Pro Max")
             .environmentObject(PredictionStatus())
             .environmentObject(cartViewModel())
+            .environmentObject(ClassifierViewModel())
             .preferredColorScheme(.dark)
         
         ClassificationView()
             .previewDevice("iPhone SE (3rd generation)")
             .environmentObject(PredictionStatus())
             .environmentObject(cartViewModel())
+            .environmentObject(ClassifierViewModel())
             
         
     }

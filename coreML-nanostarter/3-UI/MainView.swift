@@ -11,10 +11,12 @@ struct MainView: View {
     
     @StateObject var recetaVM = RecetasViewModel()
     @StateObject var cartVM = cartViewModel()
+    @StateObject var classifierViewModel = ClassifierViewModel()
     
     var body: some View {
         TabView{
             ClassificationView()
+                .environmentObject(classifierViewModel)
                 .environmentObject(PredictionStatus())
                 .environmentObject(cartVM)
                 .tabItem{
