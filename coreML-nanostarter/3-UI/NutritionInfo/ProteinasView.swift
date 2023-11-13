@@ -16,8 +16,8 @@ struct ProteinasView: View {
             VStack(alignment: .leading, spacing: 20) {
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color.green) // o cualquier otro color que prefieras
-                        .cornerRadius(10) // ajusta el valor según tus necesidades
+                        .foregroundColor(Color.green)
+                        .cornerRadius(10)
 
                     Text("¿Qué son las proteínas?")
                         .font(.title)
@@ -57,6 +57,10 @@ struct ProteinasView: View {
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
 
+                /*
+                Text("Alimentos ricos en proteínas:")
+                    .font(.title)
+                
                 ScrollView(.horizontal) {
                     HStack(spacing: 20) {
                         ForEach(0..<foods.count, id: \.self) { index in
@@ -71,6 +75,9 @@ struct ProteinasView: View {
                         }
                     }
                 }
+                 */
+                 
+                 
 
             }
             .padding()

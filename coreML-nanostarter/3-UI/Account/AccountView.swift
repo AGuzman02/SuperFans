@@ -41,6 +41,7 @@ struct AccountView: View {
                             } else {
                                 Text("0.00 kg")
                             }
+                        Text(String(format: "%.1fkg", perfilModel.perfil.first?.weight ?? 0))
                     }
                     Divider().frame(height: 90)
                     VStack{

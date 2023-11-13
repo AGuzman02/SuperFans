@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct NutritionInfo: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
+        
+        let primaryColor: Color = colorScheme == .light ? .white : .black
+        
         NavigationView {
             VStack
             {
@@ -32,8 +38,19 @@ struct NutritionInfo: View {
                                     .shadow(radius: 5)
                                     .overlay(alignment:
                                             .topLeading, content: {
-                                                Text("CALORIAS")
-                                                    .padding()
+                                                ZStack{
+                                                    
+                                                    Text("CALORIAS")
+                                                        .padding(10)
+                                                        .foregroundColor(primaryColor)
+                                                        .fontWeight(.heavy)
+                                                        .offset(x:2,y:1.5)
+                                                    
+                                                    Text("CALORIAS")
+                                                        .padding(10)
+                                                        .foregroundColor(.primary)
+                                                        .fontWeight(.heavy)
+                                                }
                                             }
                                     )
                             }
@@ -50,8 +67,20 @@ struct NutritionInfo: View {
                                     .shadow(radius: 5)
                                     .overlay(alignment:
                                             .topLeading, content: {
-                                                Text("CARBOHIDRATOS")
-                                                    .padding()
+                                                ZStack{
+                                                    
+                                                    Text("CARBOHIDRATOS")
+                                                        .padding(10)
+                                                        .foregroundColor(primaryColor)
+                                                        .fontWeight(.heavy)
+                                                        .offset(x:2,y:1.5)
+                                                    
+                                                    Text("CARBOHIDRATOS")
+                                                        .padding(10)
+                                                        .foregroundColor(.primary)
+                                                        .fontWeight(.heavy)
+                                                }
+                                                
                                             }
                                     )
                             }
@@ -72,8 +101,19 @@ struct NutritionInfo: View {
                                     .shadow(radius: 5)
                                     .overlay(alignment:
                                             .topLeading, content: {
-                                                Text("PROTEINAS")
-                                                    .padding()
+                                                ZStack{
+                                                    
+                                                    Text("PROTEINAS")
+                                                        .padding(10)
+                                                        .foregroundColor(primaryColor)
+                                                        .fontWeight(.heavy)
+                                                        .offset(x:2,y:1.5)
+                                                    
+                                                    Text("PROTEINAS")
+                                                        .padding(10)
+                                                        .foregroundColor(.primary)
+                                                        .fontWeight(.heavy)
+                                                }
                                             }
                                     )
                             }
@@ -90,8 +130,19 @@ struct NutritionInfo: View {
                                     .shadow(radius: 5)
                                     .overlay(alignment:
                                             .topLeading, content: {
-                                                Text("LIPIDOS")
-                                                    .padding()
+                                                ZStack{
+                                                    
+                                                    Text("LIPIDOS")
+                                                        .padding(10)
+                                                        .foregroundColor(primaryColor)
+                                                        .fontWeight(.heavy)
+                                                        .offset(x:2,y:1.5)
+                                                    
+                                                    Text("LIPIDOS")
+                                                        .padding(10)
+                                                        .foregroundColor(.primary)
+                                                        .fontWeight(.heavy)
+                                                }
                                             }
                                     )
                             }

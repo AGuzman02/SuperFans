@@ -24,6 +24,7 @@ struct cartView: View {
                         Button("Borrar"){
                             if let index = cartVM.arrCart.firstIndex(of: item){
                                 cartVM.arrCart.remove(at: index)
+                                cartVM.arrVid.remove(at: index)
                             }
                         }
                     }

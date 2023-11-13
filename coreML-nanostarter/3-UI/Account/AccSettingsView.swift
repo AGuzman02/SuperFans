@@ -39,25 +39,20 @@ struct AccSettingsView: View {
                     
                     HStack {
                         
-                        Text("Peso:").frame(width: 50, alignment: .leading)
+                        Text("Peso (kg):").frame(width: 77, alignment: .leading)
                                                 
                         TextField("Peso", value: $ViewModel.weight, formatter: NumberFormatter()).keyboardType(.numberPad)
-                            .frame(width: 35)
                         
-                        Text("kg")
                         
                         Stepper("", value: $ViewModel.weight, in: 0...300)
                     }
                     
                     HStack {
                         
-                        Text("Altura:").frame(width: 50, alignment: .leading)
+                        Text("Altura (m):").frame(width: 81, alignment: .leading)
                         
-                        TextField("Altura", value: $ViewModel.height, format: .number)
+                        TextField("Altura (m)", value: $ViewModel.height, format: .number)
                             .keyboardType(.decimalPad)
-                            .frame(width: 35)
-                        
-                        Text("m")
                         
                         Stepper("", value: $ViewModel.height, in: 0...2.52, step: 0.01)
                     }
@@ -89,6 +84,13 @@ struct AccSettingsView: View {
                     Stepper(value: $weight, in: 0...100, step: 1.0) {
                         //Text("Cambiar Peso")
                         Text("Peso: \(weight) kg")
+
+            TextField("Nombre", text: $name) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
+            
+            Button("Actualiza Nombre"){
+                Task{
+                    do{
+                        try await updateVM.updateUser(name: name)
                     }
                     .padding([.leading, .trailing])
 

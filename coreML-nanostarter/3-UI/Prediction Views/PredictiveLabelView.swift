@@ -8,7 +8,8 @@ import SwiftUI
 struct PredictiveLabelView: View {
     private(set) var labelData: Classification
     @State private var isShowingMessage = false
-    @EnvironmentObject var cartVM: cartViewModel
+    @EnvironmentObject var cartVM : cartViewModel
+    @EnvironmentObject var classifierViewModel : ClassifierViewModel
 
     
     var body: some View {
@@ -18,11 +19,11 @@ struct PredictiveLabelView: View {
             Button("\(labelData.emoji)"){
                 
                 DispatchQueue.global().async{
-                    cartVM.addIng(labelData.label)
-                }
-                
-                DispatchQueue.main.async{
-                    isShowingMessage = true
+                    DispatchQueue.main.async{
+                        cartVM.addIng(labelData.label)
+                        cartVM.addVid(labelData.video)
+                        isShowingMessage = true
+                    }
                 }
             }
             .padding()
@@ -31,14 +32,20 @@ struct PredictiveLabelView: View {
             .foregroundColor(Color.white))
             .font(.system(size: 50))
             
-        }.popover(isPresented: $isShowingMessage){
+            
+        }
+        
+        .popover(isPresented: $isShowingMessage){
             VStack{
-                Text("\(labelData.label) se ha añadido al carrito")
+                
+                
+                
+                Text("\(cartVM.arrCart.last ?? "") se ha añadido al carrito")
                     .font(.title)
                     .padding(.bottom, 20)
                     .padding(.top)
                 
-                YoutubeView(videoID: labelData.video)
+                YoutubeView(videoID: cartVM.arrVid.last ?? "")
                     .padding()
                     .aspectRatio(contentMode: .fit)
                 
@@ -61,6 +68,7 @@ struct PredictiveLabelView: View {
                     }
                 }
             }
+         
         }
     }
 
@@ -69,6 +77,7 @@ struct PredictiveLabelView_Previews: PreviewProvider {
     static var previews: some View {
         PredictiveLabelView(labelData: Classification())
             .environmentObject(cartViewModel())
+            .environmentObject(ClassifierViewModel())
             .preferredColorScheme(.dark)
     }
 }
