@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//Erick y Jeannette GET de 1 perfil
 struct AccountView: View {
     
     @StateObject private var ViewModel = AccountViewModel()
@@ -34,12 +35,23 @@ struct AccountView: View {
                     VStack{
                         Text("Peso").padding(.bottom, 11)
                         //Text("\(ViewModel.weight)kg")
+                        //Text("\(perfilModel.perfil.first?.weight ?? 0)kg")
+                        if let weight = perfilModel.perfil.first?.weight {
+                                Text(String(format: "%.2f kg", weight))
+                            } else {
+                                Text("0.00 kg")
+                            }
                         Text(String(format: "%.1fkg", perfilModel.perfil.first?.weight ?? 0))
                     }
                     Divider().frame(height: 90)
                     VStack{
                         Text("Estatura").padding(.bottom, 11)
-                        Text(String(format:"%.2fm", ViewModel.height))
+                        //Text(String(format:"%.2fm", ViewModel.height))
+                        if let height = perfilModel.perfil.first?.height {
+                            Text("\(height) m")
+                        } else {
+                            Text("0.00 m")
+                        }
                     }
                     Divider().frame(height: 90)
                     VStack{

@@ -44,13 +44,19 @@ struct ProteinasView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
-
                 Text("1. Construcción y reparación de tejidos.")
                 Text("2. Funciones enzimáticas y hormonales.")
                 Text("3. Transporte y almacenamiento de moléculas.")
                 Text("4. Regulación del equilibrio ácido-base y el transporte de oxígeno.")
                 Text("5. Participación en el sistema inmunológico.")
                 Divider()
+                
+                
+                Text("Alimentos ricos en proteínas:")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 20)
+
                 /*
                 Text("Alimentos ricos en proteínas:")
                     .font(.title)

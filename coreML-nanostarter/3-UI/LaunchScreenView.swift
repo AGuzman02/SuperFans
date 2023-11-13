@@ -11,6 +11,8 @@ struct LaunchScreenView: View {
     
     @State private var user: String = ""
     @State private var pass: String = ""
+    @StateObject var loginVM = LogInViewModel()
+
     
     var body: some View {
         NavigationView {
@@ -50,16 +52,30 @@ struct LaunchScreenView: View {
                             HStack{
                                 
                                 NavigationLink(destination: MainView()){
-                                    Text("Log in")
+                                    Text("Enter")
                                         .frame(width:65, height: 15)
                                 }.isDetailLink(false)
                                     .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
+                                
+                                //Log In (POST) Erick y Jeannette
+                                Button("Log In"){
+                                    Task{
+                                        do{
+                                            try await loginVM.loginUser(username: user, password: pass)
+                                        }
+                                        catch {
+                                            print("Login error: \(error)")
+                                        }
+                                    }
+                                }
                                 
                                 NavigationLink(destination: SignUpView()){
                                     Text("Sign Up")
                                         .frame(width:65, height: 15)
                                 }.isDetailLink(false)
                                     .buttonStyle(RoundedRectButtonStyle(buttonColor: .green.opacity(0.7)))
+                                    
+                          
                             }.padding(.vertical,8)
                             
                             Text("Ingresar con:").padding(.bottom)
