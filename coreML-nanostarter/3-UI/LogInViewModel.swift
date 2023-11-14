@@ -28,8 +28,8 @@ class LogInViewModel : ObservableObject {
         var responseLogin : [LoginResponse]
     }
     @Published var responseLogin = [LoginResponse]()
-    //var responsetokenfinal : Any
 
+    //Funcion que manda username y password para recibir token de autenticacion
     func loginUser(username: String, password: String) async throws {
         guard let url = URL(string: "https://api-superfans.onrender.com/auth/login/\(username)/\(password)") else {            print("Invalid URL")
             return
@@ -42,7 +42,6 @@ class LogInViewModel : ObservableObject {
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpBody = try? JSONEncoder().encode(user)
 
-        //let (_, response) = try await URLSession.shared.data(for: urlRequest)
         let(data, response) = try await URLSession.shared.data(for: urlRequest)
 
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {

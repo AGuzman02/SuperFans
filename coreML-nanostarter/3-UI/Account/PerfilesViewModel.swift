@@ -14,6 +14,7 @@ class PerfilesViewModel : ObservableObject {
     @Published var perfil = [PerfilModel]()
     @Published var testIDPerfil = 1
     
+    //Funcion que obtiene los datos de perfil del id = testIDPerfil
     func getPerfilData() async throws {
         guard let url = URL(string: "https://api-superfans.onrender.com/users/perfiles/\(testIDPerfil)") else {
             print("Invalid URL")

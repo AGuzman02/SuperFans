@@ -11,6 +11,7 @@ struct SingleProfile : Decodable {
     var perfil : [PerfilModel]
 }
 
+//Struct con los datos de tabla perfil
 struct PerfilModel : Decodable, Identifiable {
     var fname: String
     var lname: String

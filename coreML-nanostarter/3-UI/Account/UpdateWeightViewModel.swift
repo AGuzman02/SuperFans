@@ -15,6 +15,7 @@ class UpdateWeightViewModel : ObservableObject {
         var weight: Double
     }
 
+    //Funcion para actualizar el peso de un perfil
     func updateUserWeight(weight: Double) async throws {
         guard let url = URL(string: "https://api-superfans.onrender.com/users/perfiles/peso/1") else {
             print("Invalid URL")

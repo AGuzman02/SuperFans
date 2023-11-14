@@ -15,6 +15,8 @@ struct AccountView: View {
     
     var body: some View {
         NavigationView{
+            //Aqui se despliegan los datos (nombre, edad, peso, estatura, genero) de un perfil a base
+            //del PerfilesViewModel
             VStack(){
                 HStack{
                     //Text("\(ViewModel.name)")
@@ -66,12 +68,13 @@ struct AccountView: View {
                     }
                 }
                 
+                //Llama a la funcion getPerfilData para obtener los datos del perfil
                 .task{
                         do{
                             try await perfilModel.getPerfilData()
                         }
                         catch {
-                            print("Registration error: \(error)")
+                            print("Cant get profile data error: \(error)")
                         }
                     }
                                 

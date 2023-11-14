@@ -64,7 +64,7 @@ struct AccSettingsView: View {
                 }
             }
             VStack(alignment: .leading, spacing: 20) {
-                // Sección para cambiar el nombre
+                //Sección para cambiar el first name
                 HStack {
                     TextField("Nombre", text: $name)
                         .textFieldStyle(RoundedBorderTextFieldStyle())

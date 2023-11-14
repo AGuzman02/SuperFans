@@ -57,7 +57,7 @@ struct LaunchScreenView: View {
                                 }.isDetailLink(false)
                                     .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
                                 
-                                //Log In (POST) Erick y Jeannette
+                                //Log In (POST) Erick y Jeannette que llama a funcion loginUser
                                 Button("Log In"){
                                     Task{
                                         do{
