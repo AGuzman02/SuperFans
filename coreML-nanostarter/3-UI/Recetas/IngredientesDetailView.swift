@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IngredientesDetailView: View {
     
-    @StateObject var ingredientesVM = IngredientesViewModel()
+    @StateObject var ingredientesVM2 = Ingredientes2ViewModel()
 
     let receta : RecetasModel
     
@@ -59,20 +59,19 @@ struct IngredientesDetailView: View {
             Divider()
             
             List {
-                ForEach(ingredientesVM.arrIngredientes) { item in
+                ForEach(ingredientesVM2.arrIngredientes2, id: \.ingrediente) { item in
                     Text(item.ingrediente)
                         .font(.headline)
                         .padding(.bottom, 5)
                 }
                 .padding(.horizontal, 20)
             }
-            .listStyle(PlainListStyle()) // Cambia el estilo de la lista a PlainListStyle
+            .listStyle(PlainListStyle())
             .task {
                 do {
-                    try await ingredientesVM.getIngredientesData()
-                }
-                catch {
-                    print("error")
+                    try await ingredientesVM2.getIngredientesData2()
+                } catch {
+                    print("Error: \(error)")
                 }
             }
         }

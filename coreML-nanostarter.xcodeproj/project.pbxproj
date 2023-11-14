@@ -24,6 +24,7 @@
 		A5D6918A27EA466400101791 /* LiveCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6918827EA466400101791 /* LiveCameraViewController.swift */; };
 		A5D6918D27EA48B100101791 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6918C27EA48B100101791 /* Constants.swift */; };
 		A5D6919027EA48F900101791 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6918F27EA48F900101791 /* Helpers.swift */; };
+		D64B06B52B030B3500E1D864 /* Ingredientes2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B06B42B030B3500E1D864 /* Ingredientes2ViewModel.swift */; };
 		D6592DB02AFDCEFC008A5FDC /* PerfilModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DAF2AFDCEFC008A5FDC /* PerfilModel.swift */; };
 		D6592DB22AFDCF14008A5FDC /* UpdateNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */; };
 		D6592DB42AFDCF2F008A5FDC /* PerfilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */; };
@@ -81,6 +82,7 @@
 		A5D6918C27EA48B100101791 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5D6918F27EA48F900101791 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A5D6919127EA5B4D00101791 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D64B06B42B030B3500E1D864 /* Ingredientes2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredientes2ViewModel.swift; sourceTree = "<group>"; };
 		D6592DAF2AFDCEFC008A5FDC /* PerfilModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilModel.swift; sourceTree = "<group>"; };
 		D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameViewModel.swift; sourceTree = "<group>"; };
 		D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilesViewModel.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				FB26D3A02AE1D77C0047DAA1 /* IngredientesViewModel.swift */,
 				FB5F65252AFAB5B5000E6A33 /* cartView.swift */,
 				FB5F65272AFAB639000E6A33 /* cartViewModel.swift */,
+				D64B06B42B030B3500E1D864 /* Ingredientes2ViewModel.swift */,
 			);
 			path = Recetas;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				A5050A2027F37D4600C6CABA /* ClassifierViewModel.swift in Sources */,
 				FBF9346A2AF4557F009B3016 /* GrasasView.swift in Sources */,
 				A5D6918D27EA48B100101791 /* Constants.swift in Sources */,
+				D64B06B52B030B3500E1D864 /* Ingredientes2ViewModel.swift in Sources */,
 				A562F07327EE7E7A00602D4E /* Classification.swift in Sources */,
 				FB6DE0712AD9B99600FA3526 /* AccountViewModel.swift in Sources */,
 				D68711692B00091600B13346 /* UpdateWeightViewModel.swift in Sources */,
