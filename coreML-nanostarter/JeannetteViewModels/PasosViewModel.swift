@@ -9,25 +9,26 @@ import Foundation
 
 import SwiftUI
 
-class Ingredientes2ViewModel : ObservableObject {
-    @Published var arrIngredientes2 = [Ingredientes2Model]()
-    @Published var idReceta = 64
+class PasosViewModel : ObservableObject {
+    @Published var arrPasos = [PasosModel]()
+    @Published var idReceta = 59
     
     // IngredientesModel.swift
     //Ya quedo
-    struct Ingredientes2Model: Decodable {
-        var ingrediente: String
-        var lsm: String?
+    struct PasosModel: Decodable {
+        var instruccion: String?
         var idreceta: Int
     }
-    struct ResponseDataIng: Decodable {
-        var ingredientes: [Ingredientes2Model]
+
+    struct ResponsePasos: Decodable {
+        var pasosReceta: [PasosModel]
     }
     
     
-    func getIngredientesData2() async throws
+    
+    func getPasos() async throws
     {
-        guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas/ingredientes/\(idReceta)")
+        guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas/pasos/\(idReceta)")
         else{   //entra al else si la url es invalida
             print("invalid url")
             return
@@ -42,13 +43,14 @@ class Ingredientes2ViewModel : ObservableObject {
             return
         }
         
-        let result = try JSONDecoder().decode(ResponseDataIng.self, from: data)
+        let result = try JSONDecoder().decode(ResponsePasos.self, from: data)
         
         print(result)
         DispatchQueue.main.async {
-            self.arrIngredientes2 = result.ingredientes
+            self.arrPasos = result.pasosReceta
         }
         
         print (result)
     }
 }
+
