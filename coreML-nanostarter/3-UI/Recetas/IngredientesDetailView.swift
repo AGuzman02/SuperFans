@@ -10,6 +10,8 @@ import SwiftUI
 struct IngredientesDetailView: View {
     
     @StateObject var ingredientesVM2 = Ingredientes2ViewModel()
+    @StateObject var pasosVM = PasosViewModel()
+
 
     let receta : RecetasModel
     
@@ -70,6 +72,31 @@ struct IngredientesDetailView: View {
             .task {
                 do {
                     try await ingredientesVM2.getIngredientesData2()
+                } catch {
+                    print("Error: \(error)")
+                }
+            }
+            //PASOS
+            Text("Pasos")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.bottom, 10)
+            
+            Divider()
+            
+            List {
+                ForEach(pasosVM.arrPasos, id: \.instruccion) { item in
+                    Text(item.instruccion ?? "")
+                        .font(.headline)
+                        .padding(.bottom, 5)
+                }
+                .padding(.horizontal, 20)
+            }
+            .listStyle(PlainListStyle())
+            .task {
+                do {
+                    try await pasosVM.getPasos()
+                    print("Si lo llamo")
                 } catch {
                     print("Error: \(error)")
                 }
