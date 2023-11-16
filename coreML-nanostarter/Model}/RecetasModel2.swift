@@ -15,15 +15,16 @@ struct Recetas: Decodable {
     }
 }
 
-struct RecetasModel : Codable, Identifiable, Hashable {
-    var id = UUID()
-    //var idreceta: Int?
+struct RecetasModel : Codable, Hashable {
+    //var id = UUID()
+    var idreceta: Int?
     var recetaname: String?
     var tiempo: Int?
     var img: String?
     
     
     enum CodingKeys : String, CodingKey {
+        case idreceta
         case recetaname
         case tiempo
         case img
