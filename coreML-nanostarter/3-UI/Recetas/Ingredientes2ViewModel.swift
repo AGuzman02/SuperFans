@@ -25,9 +25,9 @@ class Ingredientes2ViewModel : ObservableObject {
     }
     
     
-    func getIngredientesData2() async throws
+    func getIngredientesData2(idreceta: Int) async throws
     {
-        guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas/ingredientes/\(idReceta)")
+        guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas/ingredientes/\(idreceta)")
         else{   //entra al else si la url es invalida
             print("invalid url")
             return

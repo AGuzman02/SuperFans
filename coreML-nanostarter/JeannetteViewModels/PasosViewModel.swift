@@ -26,9 +26,9 @@ class PasosViewModel : ObservableObject {
     
     
     
-    func getPasos() async throws
+    func getPasos(idreceta: Int) async throws
     {
-        guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas/pasos/\(idReceta)")
+        guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas/pasos/\(idreceta)")
         else{   //entra al else si la url es invalida
             print("invalid url")
             return

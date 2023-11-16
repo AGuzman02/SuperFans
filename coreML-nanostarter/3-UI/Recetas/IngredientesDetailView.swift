@@ -11,6 +11,7 @@ struct IngredientesDetailView: View {
     
     @StateObject var ingredientesVM2 = Ingredientes2ViewModel()
     @StateObject var pasosVM = PasosViewModel()
+    //@State private var idreceta= receta.idreceta
 
 
     let receta : RecetasModel
@@ -25,6 +26,9 @@ struct IngredientesDetailView: View {
                 Text(receta.recetaname ?? "")
                     .font(.title)
                     .fontWeight(.bold)
+                
+                Text("\(receta.idreceta ?? 0)")
+
                 
                 Spacer()
                 /*
@@ -71,7 +75,7 @@ struct IngredientesDetailView: View {
             .listStyle(PlainListStyle())
             .task {
                 do {
-                    try await ingredientesVM2.getIngredientesData2()
+                    try await ingredientesVM2.getIngredientesData2(idreceta: receta.idreceta ?? 0)
                 } catch {
                     print("Error: \(error)")
                 }
@@ -95,7 +99,7 @@ struct IngredientesDetailView: View {
             .listStyle(PlainListStyle())
             .task {
                 do {
-                    try await pasosVM.getPasos()
+                    try await pasosVM.getPasos(idreceta: receta.idreceta ?? 0)
                     print("Si lo llamo")
                 } catch {
                     print("Error: \(error)")
