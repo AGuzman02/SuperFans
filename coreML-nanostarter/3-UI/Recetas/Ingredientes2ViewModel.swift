@@ -15,7 +15,7 @@ class Ingredientes2ViewModel : ObservableObject {
     
     // IngredientesModel.swift
     //Ya quedo
-    struct Ingredientes2Model: Decodable {
+    struct Ingredientes2Model: Decodable, Hashable {
         var ingrediente: String
         var lsm: String?
         var idreceta: Int

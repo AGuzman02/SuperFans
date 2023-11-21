@@ -14,7 +14,7 @@ struct SquaresView: View {
     
     var body: some View {
         VStack {
-            
+            /*
             NavigationLink(destination: SubirRecetaView()){
                 VStack{
                     
@@ -34,6 +34,7 @@ struct SquaresView: View {
                 .background(Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75)))
                 .cornerRadius(25)
                 .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 10)
+             */
             
             HStack {
                 NavigationLink(destination: AlergiasView()){

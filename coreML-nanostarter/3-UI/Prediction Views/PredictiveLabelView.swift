@@ -40,7 +40,7 @@ struct PredictiveLabelView: View {
                 
                 
                 
-                Text("\(cartVM.arrCart.last ?? "") se ha añadido al carrito")
+                Text("\(cartVM.arrCart.last ?? "") se añadió al carrito")
                     .font(.title)
                     .padding(.bottom, 20)
                     .padding(.top)

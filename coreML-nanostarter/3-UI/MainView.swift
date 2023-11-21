@@ -21,6 +21,8 @@ struct MainView: View {
                 }
             SearchView()
                 .environmentObject(recetaVM)
+                .environmentObject(cartViewModel())
+                .environmentObject(Ingredientes2ViewModel())
                 .tabItem{
                     Image(systemName: "magnifyingglass")
                 }
