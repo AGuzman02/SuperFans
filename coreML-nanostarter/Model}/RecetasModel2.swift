@@ -15,6 +15,15 @@ struct Recetas: Decodable {
     }
 }
 
+struct RecetasFav: Decodable {
+    var arrFavoritas: [RecetasModel]
+    
+    enum CodingKeys : String, CodingKey {
+        case arrFavoritas = "favoritas"
+    }
+}
+
+
 struct RecetasModel : Codable, Hashable {
     //var id = UUID()
     var idreceta: Int?

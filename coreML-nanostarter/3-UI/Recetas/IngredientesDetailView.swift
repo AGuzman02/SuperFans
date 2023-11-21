@@ -17,6 +17,7 @@ struct IngredientesDetailView: View {
     let receta : RecetasModel
     
     var body: some View {
+        
         VStack{
             
             HStack{

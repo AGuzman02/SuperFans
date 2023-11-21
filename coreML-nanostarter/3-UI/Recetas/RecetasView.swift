@@ -9,29 +9,37 @@ import SwiftUI
 
 struct RecetasView: View {
     
+    @EnvironmentObject var recetaVM : RecetasViewModel
+    @State var nameSearch : String = ""
     
-    @EnvironmentObject var recetaViewModel : RecetasViewModel
-    /*
-    var favoriteRecetas : [RecetasModel]{
-        recetaViewModel.arrReceta.filter { receta in
-            (receta.isFavorite)
+    var filteredMeals: [RecetasModel] {
+            guard !nameSearch.isEmpty else { return recetaVM.arrRecetaFav }
+            return recetaVM.arrRecetaFav.filter { receta in
+                receta.recetaname!.lowercased().contains(nameSearch.lowercased())
+            }
         }
-    }
-     */
     
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
-                    /*
-                    ForEach(favoriteRecetas, id: \.self){
-                        item in
-                        Receta(receta: item)
-                     
+                    VStack {
+                        
+                        ForEach(filteredMeals, id: \.self){
+                            item in
+                            Receta(receta: item)
+                        }
+                                                
                     }
-                     */
-                }
-                .navigationTitle("Favoritos")
+                    .navigationTitle("Favoritas")
+                    .searchable(text: $nameSearch, prompt: "Busca Recetas")
+                    .task{
+                        do{
+                            try await recetaVM.getRecetasID()
+                        } catch {
+                            print("Error getting")
+                        }
+                    }
+                    
             }
         }
     }
@@ -39,12 +47,13 @@ struct RecetasView: View {
 
 struct RecetasView_Previews: PreviewProvider {
     static var previews: some View {
-        RecetasView()
+        SearchView()
             .environmentObject(RecetasViewModel())
             .previewDevice("iPhone 14 Pro Max")
         
-        RecetasView()
+        SearchView()
             .environmentObject(RecetasViewModel())
             .previewDevice("iPhone SE (3rd generation)")
     }
 }
+
