@@ -8,13 +8,14 @@ import SwiftUI
 struct PredictionResultView: View {
     private(set) var labelData: Classification
     
-    
-    
+    @EnvironmentObject var cartVM : cartViewModel
+
+        
     var body: some View {
         
             VStack{
                 
-                PredictiveLabelView(labelData: labelData)
+                PredictiveLabelView(labelData: labelData).environmentObject(cartVM)
                 
             }
 

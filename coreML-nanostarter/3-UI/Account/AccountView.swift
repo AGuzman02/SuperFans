@@ -12,15 +12,17 @@ struct AccountView: View {
     
     @StateObject private var ViewModel = AccountViewModel()
     @StateObject var perfilModel = PerfilesViewModel()
+    @State private var currentCal = 0.0
     
     var body: some View {
         NavigationView{
+                                    
             VStack(){
                 HStack{
                     //Text("\(ViewModel.name)")
                     Text("\(perfilModel.perfil.first?.fname ?? "")")
                     Spacer()
-                    Image(systemName: "person.crop.square.fill")
+                    Image(systemName: "person.crop.square.fill").foregroundColor(.green)
                 }
                 Divider()
                 ScrollView {
@@ -34,35 +36,55 @@ struct AccountView: View {
                     Divider().frame(height: 90)
                     VStack{
                         Text("Peso").padding(.bottom, 11)
-                        //Text("\(ViewModel.weight)kg")
-                        //Text("\(perfilModel.perfil.first?.weight ?? 0)kg")
-                        if let weight = perfilModel.perfil.first?.weight {
-                                Text(String(format: "%.2f kg", weight))
-                            } else {
-                                Text("0.00 kg")
-                            }
-                        Text(String(format: "%.1fkg", perfilModel.perfil.first?.weight ?? 0))
+                        
+                        Text(String(format: "%.0f kg", perfilModel.perfil.first?.weight ?? 0))
                     }
                     Divider().frame(height: 90)
                     VStack{
                         Text("Estatura").padding(.bottom, 11)
                         //Text(String(format:"%.2fm", ViewModel.height))
                         if let height = perfilModel.perfil.first?.height {
-                            Text("\(height) m")
-                        } else {
-                            Text("0.00 m")
-                        }
+                                                    Text("\(height) m")
+                                                } else {
+                                                    Text("0.00 m")
+                                                }
                     }
                     Divider().frame(height: 90)
                     VStack{
                         Text("Genero").padding(.bottom, 11)
-                        Text(ViewModel.gender ? "M" : "F")
+                        Text((perfilModel.perfil.first?.gender ?? false) ? "M" : "F")
                     }
                     Spacer()
                 }
                 Divider()
                     VStack {
+                        ZStack {
+                                        // 2
+                            CircleProgress(progress: currentCal)
+                                        // 3
+                            HStack{
+                                Text("\((currentCal) * perfilModel.getTargetCal() * ViewModel.actFis, specifier: "%.0f")")
+                                    .font(.largeTitle)
+                                    .bold()
+                                Text("kcal")
+                                    .italic()
+                                    .bold()
+                            }
+                        }
+                        .frame(width: 200, height: 200)
+                        
+                        Spacer()
+                        VStack {
+                                        // 4
+                            Slider(value: $currentCal, in: 0...1)
+                            Text("Meta: \(perfilModel.getTargetCal() * ViewModel.actFis, specifier: "%.0f") calorias")
+                                        // 5
+                                        
+                        }
+                                
+                        
                         SquaresView().environmentObject(ViewModel)
+                            .environmentObject(perfilModel)
                             .padding(.top)
                     }
                 }

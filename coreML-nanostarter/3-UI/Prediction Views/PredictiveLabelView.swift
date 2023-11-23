@@ -50,7 +50,7 @@ struct PredictiveLabelView: View {
                     .aspectRatio(contentMode: .fit)
                 
                 NavigationView{
-                    NavigationLink(destination: cartView()){
+                    NavigationLink(destination: cartView().environmentObject(cartVM)){
                         VStack{
                             
                             Text("Ver Carrito")

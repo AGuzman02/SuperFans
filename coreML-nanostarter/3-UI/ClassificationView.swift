@@ -32,10 +32,12 @@ struct ClassificationView: View {
                                         
                                         Spacer()
                                         
+                                        
                                         NavigationLink(destination: cartView()){
                                             Image(systemName: cartVM.arrCart.isEmpty ? "cart" : "cart.fill")
                                                 .font(.system(size:40))
                                         }
+                                         
                                     }.padding(.trailing)
                                     
                                     Spacer()
@@ -47,6 +49,7 @@ struct ClassificationView: View {
                             }
                             
                             PredictionResultView(labelData: classifierViewModel.getPredictionData(label: predictionLabel))
+                                .environmentObject(cartVM)
                                 .frame(width: geo.size.width, height: geo.size.height * 0.25)
                                 
                         }

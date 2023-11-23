@@ -11,7 +11,7 @@ struct SearchView: View {
     
     @EnvironmentObject var recetaVM : RecetasViewModel
     @EnvironmentObject var cartVM : cartViewModel
-    @EnvironmentObject var ingredientesVM2 : Ingredientes2ViewModel
+    @EnvironmentObject var ingredientesVM : IngredientesViewModel
     @State var nameSearch : String = ""
     
     var filteredMeals: [RecetasModel] {
@@ -23,7 +23,7 @@ struct SearchView: View {
     
     var filteredMeal: [RecetasModel] {
             return recetaVM.arrReceta.filter { receta in
-                return ingredientesVM2.arrIngredientes2.contains { ingredient in
+                return ingredientesVM.arrIngredientes.contains { ingredient in
                     cartVM.arrCart.contains(ingredient.ingrediente)
                 }
             }
@@ -34,6 +34,11 @@ struct SearchView: View {
         NavigationView {
             ScrollView {
                     VStack {
+                        ForEach(cartVM.arrCart, id: \.self){
+                            item in
+                            Text(item)
+                        }
+                        
                         ForEach(filteredMeals, id: \.self){
                             item in
                             Receta(receta: item)

@@ -10,8 +10,10 @@ import SwiftUI
 struct AccSettingsView: View {
     
     @EnvironmentObject var ViewModel : AccountViewModel
+    @EnvironmentObject var perfilModel : PerfilesViewModel
     @State private var name: String = ""
-    @State private var weight: Double = 0.0
+    @State private var weight: Int = 0
+    @State private var buttonSize: CGFloat = 60
     @StateObject var updateWeightVM = UpdateWeightViewModel()
     @StateObject var updateVM = UpdateNameViewModel()
     
@@ -22,86 +24,133 @@ struct AccSettingsView: View {
                     HStack {
                         
                         Text("Nombre:")
-                        TextField("Nombre", text: $ViewModel.name)
+                        TextField("Nombre", text: ($perfilModel.perfil.first?.fname ?? $ViewModel.name))
+                        
                     }
                     HStack{
                         
                         Text("Edad:").frame(width: 50, alignment: .leading)
-                        TextField("Edad", value: $ViewModel.age, formatter: NumberFormatter()).keyboardType(.numberPad)
-                        Stepper("", value: $ViewModel.age, in: 0...120)
+                        TextField("Edad", value: ($perfilModel.perfil.first?.age ?? $ViewModel.age), formatter: NumberFormatter()).keyboardType(.numberPad)
+                        Stepper("", value: ($perfilModel.perfil.first?.age ?? $ViewModel.age), in: 0...120)
                     }
                     
                     HStack {
                         Text("Peso (kg):").frame(width: 77, alignment: .leading)
-                        TextField("Peso", value: $ViewModel.weight, formatter: NumberFormatter()).keyboardType(.numberPad)
-                        Stepper("", value: $ViewModel.weight, in: 0...300)
+                        TextField("Peso", value: $perfilModel.perfil.first?.weight ?? .constant(0), formatter: NumberFormatter())
+                            .keyboardType(.numberPad)
+
+                        Stepper("", value: $perfilModel.perfil.first?.weight ?? .constant(0), in: 0...300)
                     }
                     
                     HStack {
-                        Text("Altura (m):").frame(width: 81, alignment: .leading)
-                        TextField("Altura (m)", value: $ViewModel.height, format: .number)
+                        Text("Altura (cm):").frame(width: 90, alignment: .leading)
+                        TextField("Altura (cm)", value: ($perfilModel.perfil.first?.height ?? $ViewModel.height), format: .number)
                             .keyboardType(.decimalPad)
-                        Stepper("", value: $ViewModel.height, in: 0...2.52, step: 0.01)
+                        Stepper("", value: ($perfilModel.perfil.first?.height ?? $ViewModel.height), in: 0...252, step: 1)
                     }
-                }
-            }
-            VStack(alignment: .leading, spacing: 20) {
-                // Sección para cambiar el nombre
-                HStack {
-                    TextField("Nombre", text: $name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding([.top, .leading, .trailing])
                     
-                    Button("Cambiar nombre") {
-                        Task {
-                            do {
-                                try await updateVM.updateUser(name: name)
-                            } catch {
-                                print("Error al cambiar el nombre: \(error)")
+                    VStack() {
+                        Text("Activida Fìsica Por Semana (Dias)")
+                        HStack() {
+                            Button(action: {
+                                ViewModel.actFis = 1.3
+                            }) {
+                                Text("0")
+                                    .padding()
+                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                    .background(Color.green)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                            }
+                            
+                            Button(action: {
+                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 1.6 : 1.5
+                            }) {
+                                Text("1-3")
+                                    .padding()
+                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                    .background(Color.green)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                            }
+                            
+                            Button(action: {
+                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 1.7: 1.6
+                            }) {
+                                Text("3-5")
+                                    .padding()
+                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                    .background(Color.green)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                            }
+                            
+                            Button(action: {
+                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 2.1 : 1.9
+                            }) {
+                                Text("5-7")
+                                    .padding()
+                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                    .background(Color.green)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                            }
+                            
+                            Button(action: {
+                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 2.4 : 2.2
+                            }) {
+                                Text("7+")
+                                    .padding()
+                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                    .background(Color.green)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
                             }
                         }
+                        
+                    }
+                    
+                    VStack{
+                        Button("Actualizar") {
+                            Task {
+                                do {
+                                    try await updateWeightVM.updateUserWeight(weight: perfilModel.perfil.first?.weight ?? 0)
+                                    try await updateVM.updateUser(name: perfilModel.perfil.first?.fname ?? "")
+
+                                } catch {
+                                    print("Error al actualizar el peso: \(error)")
+                                }
+                            }
+                        }
+                        .frame(maxWidth: .infinity) // Expand button width to fill the container
+                    }
+                }.buttonStyle(BorderlessButtonStyle())
+            }
+            .task{
+                    do{
+                        try await perfilModel.getPerfilData()
+                    }
+                    catch {
+                        print("Registration error: \(error)")
                     }
                 }
-                
-                //Sección para cambiar el peso
-                //UPDATE (PUT) Erick y Jeannette
-                VStack(alignment: .leading, spacing: 10) {
-                    //Text("Peso: \(weight) kg")
-                    Stepper(value: $weight, in: 0...100, step: 1.0) {
-                        //Text("Cambiar Peso")
-                        Text("Peso: \(weight) kg")
-                        TextField("Nombre", text: $name) .textFieldStyle(RoundedBorderTextFieldStyle()).padding([.top,  .leading, .trailing])
-                        Button("Actualiza Nombre"){
-                            Task{
-                                do{
-                                    try await updateVM.updateUser(name: name)
-                                }
-                                
-                                Button("Guardar Cambios") {
-                                    Task {
-                                        do {
-                                            try await updateWeightVM.updateUserWeight(weight: weight)
-                                        } catch {
-                                            print("Error al actualizar el peso: \(error)")
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .padding([.top, .leading, .trailing])
-                        
-                        
-                    }.padding()
-                }
-            }
         }
     }
     
     struct AccSettingsView_Previews: PreviewProvider {
         static var previews: some View {
-            AccSettingsView().environmentObject(AccountViewModel())
+            AccSettingsView()
+                .environmentObject(AccountViewModel())
+                .environmentObject(PerfilesViewModel())
             
-            AccSettingsView().environmentObject(AccountViewModel())
+            AccSettingsView()
+                .environmentObject(AccountViewModel())
+                .environmentObject(PerfilesViewModel())
+                .preferredColorScheme(.dark)
+            
+            AccSettingsView()
+                .environmentObject(AccountViewModel())
+                .environmentObject(PerfilesViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
         }
     }
