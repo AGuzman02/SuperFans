@@ -8,23 +8,20 @@
 import SwiftUI
 
 struct MainView: View {
-    
-    @StateObject var recetaVM = RecetasViewModel()
-    //@StateObject var ingredientesVM = IngredientesViewModel()
     @StateObject var cartVM = cartViewModel()
+    @StateObject var recetaVM = RecetasViewModel()
+    
     
     var body: some View {
         TabView{
             ClassificationView()
-                .environmentObject(PredictionStatus())
                 .environmentObject(cartVM)
                 .tabItem{
                     Image(systemName: "house.fill")
                 }
             SearchView()
-                .environmentObject(recetaVM)
                 .environmentObject(cartVM)
-                .environmentObject(IngredientesViewModel())
+                .environmentObject(recetaVM)
                 .tabItem{
                     Image(systemName: "magnifyingglass")
                 }
@@ -35,7 +32,6 @@ struct MainView: View {
                 }
             
             RecetasView()
-                .environmentObject(recetaVM)
                 .tabItem {
                     Image(systemName: "star.fill")
                 }

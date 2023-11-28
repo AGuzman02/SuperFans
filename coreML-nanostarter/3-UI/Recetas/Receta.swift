@@ -11,6 +11,7 @@ struct Receta: View {
     
     let receta: RecetasModel
     @EnvironmentObject var recetaVM : RecetasViewModel
+    @EnvironmentObject var ingredientesVM2 : Ingredientes2ViewModel
     
     var body: some View {
         

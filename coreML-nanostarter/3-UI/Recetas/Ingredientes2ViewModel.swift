@@ -11,7 +11,6 @@ import SwiftUI
 
 class Ingredientes2ViewModel : ObservableObject {
     @Published var arrIngredientes2 = [Ingredientes2Model]()
-    @Published var idReceta = 64
     
     // IngredientesModel.swift
     //Ya quedo

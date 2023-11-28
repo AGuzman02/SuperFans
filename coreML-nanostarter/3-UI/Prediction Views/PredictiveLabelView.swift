@@ -18,13 +18,13 @@ struct PredictiveLabelView: View {
             
             Button("\(labelData.emoji)"){
                 
-                DispatchQueue.global().async{
+               // DispatchQueue.global().async{
                     DispatchQueue.main.async{
                         cartVM.addIng(labelData.label)
                         cartVM.addVid(labelData.video)
                         isShowingMessage = true
                     }
-                }
+                //}
             }
             .padding()
             .background(Circle()

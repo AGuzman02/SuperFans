@@ -11,38 +11,33 @@ struct SearchView: View {
     
     @EnvironmentObject var recetaVM : RecetasViewModel
     @EnvironmentObject var cartVM : cartViewModel
-    @EnvironmentObject var ingredientesVM : IngredientesViewModel
     @State var nameSearch : String = ""
     
-    var filteredMeals: [RecetasModel] {
+    var filterByName: [RecetasModel] {
         guard !nameSearch.isEmpty else { return recetaVM.arrReceta }
             return recetaVM.arrReceta.filter { receta in
                 receta.recetaname!.lowercased().contains(nameSearch.lowercased())
             }
         }
-    
-    var filteredMeal: [RecetasModel] {
-            return recetaVM.arrReceta.filter { receta in
-                return ingredientesVM.arrIngredientes.contains { ingredient in
-                    cartVM.arrCart.contains(ingredient.ingrediente)
-                }
+    /*
+    var filteredMeal: [RecetasModel]{
+        return filterByName.filter{ receta in
+            return ingredientesVM2.arrIngredientes2.contains{ ingredient in
+                cartVM.arrCart.contains(ingredient.ingrediente)
             }
         }
-
+    }*/
     
     var body: some View {
         NavigationView {
             ScrollView {
                     VStack {
-                        ForEach(cartVM.arrCart, id: \.self){
-                            item in
-                            Text(item)
-                        }
                         
-                        ForEach(filteredMeals, id: \.self){
+                        ForEach(filterByName, id: \.self){
                             item in
                             Receta(receta: item)
                         }
+                        
                         
                     }
                     .navigationTitle("Recetas")

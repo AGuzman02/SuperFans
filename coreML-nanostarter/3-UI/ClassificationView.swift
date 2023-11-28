@@ -49,7 +49,6 @@ struct ClassificationView: View {
                             }
                             
                             PredictionResultView(labelData: classifierViewModel.getPredictionData(label: predictionLabel))
-                                .environmentObject(cartVM)
                                 .frame(width: geo.size.width, height: geo.size.height * 0.25)
                                 
                         }

@@ -5,7 +5,6 @@ class RecetasViewModel : ObservableObject {
     @Published var arrReceta = [RecetasModel]()
     @Published var arrRecetaFav = [RecetasModel]()
 
-    
     func getRecetas() async throws {
         
         guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas")
