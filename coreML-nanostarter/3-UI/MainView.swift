@@ -32,6 +32,7 @@ struct MainView: View {
                 }
             
             RecetasView()
+                .environmentObject(recetaVM)
                 .tabItem {
                     Image(systemName: "star.fill")
                 }

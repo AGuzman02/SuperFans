@@ -34,7 +34,7 @@ struct PredictiveLabelView: View {
             
             
         }
-        
+        /*
         .popover(isPresented: $isShowingMessage){
             VStack{
                 
@@ -68,7 +68,7 @@ struct PredictiveLabelView: View {
                     }
                 }
             }
-         
+         */
         }
     }
 
