@@ -76,7 +76,7 @@ struct AccountView: View {
                         Spacer()
                         VStack {
                                         // 4
-                            Slider(value: $currentCal, in: 0...1)
+                            Slider(value: $currentCal, in: 0...1).padding(.horizontal)
                             Text("Meta: \(perfilModel.getTargetCal() * ViewModel.actFis, specifier: "%.0f") calorias")
                                         // 5
                                         

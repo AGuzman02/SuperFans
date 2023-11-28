@@ -51,6 +51,8 @@ struct MainView_Previews: PreviewProvider {
         
         MainView()
             .environmentObject(cartViewModel())
+            .environmentObject(RecetasViewModel())
+            .environmentObject(PredictionStatus())
             .previewDevice("iPhone 14 Pro Max")
         
         MainView()

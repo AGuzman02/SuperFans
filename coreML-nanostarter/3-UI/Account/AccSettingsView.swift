@@ -51,63 +51,64 @@ struct AccSettingsView: View {
                     
                     VStack() {
                         Text("Activida Fìsica Por Semana (Dias)")
-                        HStack() {
-                            Button(action: {
-                                ViewModel.actFis = 1.3
-                            }) {
-                                Text("0")
-                                    .padding()
-                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
-                                    .background(Color.green)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                            }
-                            
-                            Button(action: {
-                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 1.6 : 1.5
-                            }) {
-                                Text("1-3")
-                                    .padding()
-                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
-                                    .background(Color.green)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                            }
-                            
-                            Button(action: {
-                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 1.7: 1.6
-                            }) {
-                                Text("3-5")
-                                    .padding()
-                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
-                                    .background(Color.green)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                            }
-                            
-                            Button(action: {
-                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 2.1 : 1.9
-                            }) {
-                                Text("5-7")
-                                    .padding()
-                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
-                                    .background(Color.green)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                            }
-                            
-                            Button(action: {
-                                ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 2.4 : 2.2
-                            }) {
-                                Text("7+")
-                                    .padding()
-                                    .frame(minWidth: buttonSize, minHeight: buttonSize)
-                                    .background(Color.green)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
+                        ScrollView(.horizontal){
+                            HStack() {
+                                Button(action: {
+                                    ViewModel.actFis = 1.3
+                                }) {
+                                    Text("0")
+                                        .padding()
+                                        .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                        .background(Color.green)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                }
+                                
+                                Button(action: {
+                                    ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 1.6 : 1.5
+                                }) {
+                                    Text("1-3")
+                                        .padding()
+                                        .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                        .background(Color.green)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                }
+                                
+                                Button(action: {
+                                    ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 1.7: 1.6
+                                }) {
+                                    Text("3-5")
+                                        .padding()
+                                        .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                        .background(Color.green)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                }
+                                
+                                Button(action: {
+                                    ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 2.1 : 1.9
+                                }) {
+                                    Text("5-7")
+                                        .padding()
+                                        .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                        .background(Color.green)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                }
+                                
+                                Button(action: {
+                                    ViewModel.actFis = perfilModel.perfil.first?.gender ?? ViewModel.gender ? 2.4 : 2.2
+                                }) {
+                                    Text("7+")
+                                        .padding()
+                                        .frame(minWidth: buttonSize, minHeight: buttonSize)
+                                        .background(Color.green)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                }
                             }
                         }
-                        
                     }
                     
                     VStack{
