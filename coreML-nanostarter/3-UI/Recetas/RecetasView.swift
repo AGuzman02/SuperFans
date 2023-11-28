@@ -11,6 +11,8 @@ struct RecetasView: View {
     
     @EnvironmentObject var recetaVM : RecetasViewModel
     @State var nameSearch : String = ""
+    @EnvironmentObject var cartVM : cartViewModel
+
     
     var filteredMeals: [RecetasModel] {
             guard !nameSearch.isEmpty else { return recetaVM.arrRecetaFav }
@@ -35,6 +37,7 @@ struct RecetasView: View {
                     .task{
                         do{
                             try await recetaVM.getRecetasID()
+
                         } catch {
                             print("Error getting")
                         }

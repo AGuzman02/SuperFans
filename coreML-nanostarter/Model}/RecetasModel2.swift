@@ -23,12 +23,20 @@ struct RecetasFav: Decodable {
     }
 }
 
+struct RecetasCarr: Decodable {
+    var arrRecetasCarr: [RecetasModel]
+    
+    enum CodingKeys : String, CodingKey {
+        case arrRecetasCarr = "listaIngredientesPost"
+    }
+}
 
 struct RecetasModel : Codable, Hashable {
     //var id = UUID()
     var idreceta: Int?
     var recetaname: String?
     var tiempo: Int?
+    var calories: Int?
     var img: String?
     
     
@@ -36,6 +44,7 @@ struct RecetasModel : Codable, Hashable {
         case idreceta
         case recetaname
         case tiempo
+        case calories
         case img
 
     }

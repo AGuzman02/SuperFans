@@ -8,12 +8,22 @@
 import Foundation
 import SwiftUI
 
+/*class SessionManager: ObservableObject {
+    static let shared = SessionManager()
+
+    @Published var authToken: String?
+
+    private init() {}
+}*/
+
+
 //POST Erick y Jeannette
 class LogInViewModel : ObservableObject {
-    
+    @ObservedObject var sessionManager = SessionManager.shared
+
     struct RegisterUserModel : Decodable, Encodable {
         var username: String
-        var password: String
+        var pass: String
     }
 
     struct LoginResponse : Decodable, Encodable {
@@ -31,11 +41,11 @@ class LogInViewModel : ObservableObject {
     //var responsetokenfinal : Any
 
     func loginUser(username: String, password: String) async throws {
-        guard let url = URL(string: "https://api-superfans.onrender.com/auth/login/\(username)/\(password)") else {            print("Invalid URL")
+        guard let url = URL(string: "https://api-superfans.onrender.com/auth/login") else {            print("Invalid URL")
             return
         }
         
-        let user = RegisterUserModel(username: username, password: password)
+        let user = RegisterUserModel(username: username, pass: password)
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
@@ -55,16 +65,34 @@ class LogInViewModel : ObservableObject {
 
         
         //print(data)
+        //let result = try JSONDecoder().decode(LoginResponse.self, from: data)
         
-        let result = try JSONDecoder().decode(LoginResponse.self, from: data)
+        do {
+            let result = try JSONDecoder().decode(LoginResponse.self, from: data)
+            print(result)
+            
+            let authToken = result.data.token  // Accede a la propiedad token dentro de la propiedad data
+            
+            if !authToken.isEmpty {
+                print("JWT Token:", authToken)
+                SessionManager.shared.authToken = authToken
+                //sessionManager.authToken = authToken // Almacena el token en SessionManager
+                // Aquí puedes hacer lo que quieras con el token, por ejemplo, almacenarlo para futuras solicitudes.
+            } else {
+                print("No se encontró el token en la respuesta.")
+            }
+        } catch {
+            print("Error al decodificar la respuesta:", error)
+        }
+
         
-        print(result)
+        //print(result)
         DispatchQueue.main.async {
             //self.responseLogin = result
-            print (result)
+            //print (result)
         }
         
-        print (result)
+        //print (result)
 
         
     }

@@ -12,6 +12,8 @@ struct LaunchScreenView: View {
     @State private var user: String = ""
     @State private var pass: String = ""
     @StateObject var loginVM = LogInViewModel()
+    @State private var shouldNavigateToMainView = false
+
 
     
     var body: some View {
@@ -50,24 +52,28 @@ struct LaunchScreenView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             
                             HStack{
-                                
-                                NavigationLink(destination: MainView()){
+                                /*
+                                NavigationLink(destination: MainView(),isActive: $shouldNavigateToMainView){
                                     Text("Enter")
                                         .frame(width:65, height: 15)
                                 }.isDetailLink(false)
                                     .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
-                                
+                                */
                                 //Log In (POST) Erick y Jeannette
+                                NavigationLink(destination: MainView(),isActive: $shouldNavigateToMainView){
                                 Button("Log In"){
                                     Task{
                                         do{
                                             try await loginVM.loginUser(username: user, password: pass)
+                                            shouldNavigateToMainView = (SessionManager.shared.authToken != nil)
                                         }
                                         catch {
                                             print("Login error: \(error)")
                                         }
                                     }
-                                }
+                                }.frame(width:65, height: 15)
+                                }.isDetailLink(false)
+                                    .buttonStyle(RoundedRectButtonStyle(buttonColor: .green))
                                 
                                 NavigationLink(destination: SignUpView()){
                                     Text("Sign Up")

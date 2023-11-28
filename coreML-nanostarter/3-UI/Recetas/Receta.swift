@@ -11,7 +11,8 @@ struct Receta: View {
     
     let receta: RecetasModel
     @EnvironmentObject var recetaVM : RecetasViewModel
-    
+    @EnvironmentObject var cartVM : cartViewModel
+
     var body: some View {
         
         let screen = UIScreen.main.bounds
@@ -23,7 +24,7 @@ struct Receta: View {
                     .cornerRadius(15)
                     .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
                 HStack(){
-                    AsyncImage(url: URL(string: receta.img ?? "No hay foto BDD")){
+                    AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(String(describing: receta.img))" )){
                         phase in if let image = phase.image {
                             image
                                 .resizable()
@@ -45,8 +46,7 @@ struct Receta: View {
                         Text(receta.recetaname ?? "No hay nombre BDD")
                             .padding(.vertical, 4)
                         
-                        Text("Calorias")
-                            .padding(.bottom,5)
+                        //Text(receta.calories ?? 0).padding(.bottom,5)
                         
                         HStack {
                             Text("\(receta.tiempo ?? -1) min  ")
@@ -54,6 +54,30 @@ struct Receta: View {
                             
                             Image(systemName: "deskclock")
                         }
+                        Button(action: {
+                            Task {
+                                do {
+                                    if recetaVM.isFavorite(receta: receta) {
+                                        try await recetaVM.deleteRecetaFav(idPerfil: 22, idReceta: receta.idreceta ?? 0)
+                                    } else {
+                                        try await recetaVM.addRecetaFav(idPerfil: 22, idReceta: receta.idreceta ?? 0)
+                                    }
+                                }
+                                catch {
+                                    print("Post fav error: \(error)")
+                                }
+                                
+                            }
+                        }) {
+                            Image(systemName: recetaVM.isFavorite(receta: receta) ? "star.fill" : "star")
+                            //Image(systemName: cartVM.isFavorite2(receta: receta) ? "star.fill" : "star")
+
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.yellow)
+                        }
+
                         
                     }
                     .foregroundColor(.black)

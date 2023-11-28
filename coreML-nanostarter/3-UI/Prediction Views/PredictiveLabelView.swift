@@ -21,6 +21,7 @@ struct PredictiveLabelView: View {
                 DispatchQueue.global().async{
                     DispatchQueue.main.async{
                         cartVM.addIng(labelData.label)
+                        cartVM.addIng("salt")
                         cartVM.addVid(labelData.video)
                         isShowingMessage = true
                     }
@@ -35,7 +36,8 @@ struct PredictiveLabelView: View {
             
         }
         
-        .popover(isPresented: $isShowingMessage){
+        
+       /* .popover(isPresented: $isShowingMessage){
             VStack{
                 
                 
@@ -67,7 +69,7 @@ struct PredictiveLabelView: View {
                         .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 10)
                     }
                 }
-            }
+            }*/
          
         }
     }

@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct SearchView: View {
-    
+    @EnvironmentObject var cartVM : cartViewModel
     @EnvironmentObject var recetaVM : RecetasViewModel
     @State var nameSearch : String = ""
     
-    var filteredMeals: [RecetasModel] {
+    /*var filteredMeals: [RecetasModel] {
             guard !nameSearch.isEmpty else { return recetaVM.arrReceta }
             return recetaVM.arrReceta.filter { receta in
+                receta.recetaname!.lowercased().contains(nameSearch.lowercased())
+            }
+        }*/
+    var filteredMeals: [RecetasModel] {
+        guard !nameSearch.isEmpty else { return cartVM.arrRecetaCarr }
+        return cartVM.arrRecetaCarr.filter { receta in
                 receta.recetaname!.lowercased().contains(nameSearch.lowercased())
             }
         }
@@ -28,6 +34,7 @@ struct SearchView: View {
                             item in
                             Receta(receta: item)
                         }
+                        
                                                 
                     }
                     .navigationTitle("Recetas")
@@ -35,6 +42,7 @@ struct SearchView: View {
                     .task{
                         do{
                             try await recetaVM.getRecetas()
+                             try await cartVM.sendCarrito()
                         } catch {
                             print("Error getting")
                         }

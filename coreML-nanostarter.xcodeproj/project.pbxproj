@@ -26,6 +26,7 @@
 		A5D6919027EA48F900101791 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6918F27EA48F900101791 /* Helpers.swift */; };
 		D6318D912B06625200A42F8D /* PasosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6318D902B06625200A42F8D /* PasosViewModel.swift */; };
 		D64B06B52B030B3500E1D864 /* Ingredientes2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B06B42B030B3500E1D864 /* Ingredientes2ViewModel.swift */; };
+		D658D3682B14067B0018D4B4 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D658D3672B14067B0018D4B4 /* SessionManager.swift */; };
 		D6592DB02AFDCEFC008A5FDC /* PerfilModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DAF2AFDCEFC008A5FDC /* PerfilModel.swift */; };
 		D6592DB22AFDCF14008A5FDC /* UpdateNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */; };
 		D6592DB42AFDCF2F008A5FDC /* PerfilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */; };
@@ -85,6 +86,7 @@
 		A5D6919127EA5B4D00101791 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6318D902B06625200A42F8D /* PasosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasosViewModel.swift; sourceTree = "<group>"; };
 		D64B06B42B030B3500E1D864 /* Ingredientes2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredientes2ViewModel.swift; sourceTree = "<group>"; };
+		D658D3672B14067B0018D4B4 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		D6592DAF2AFDCEFC008A5FDC /* PerfilModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilModel.swift; sourceTree = "<group>"; };
 		D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameViewModel.swift; sourceTree = "<group>"; };
 		D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilesViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				FB4D0C332AF568D600D48D07 /* YTVideo.swift */,
 				D6592DB52AFDCF50008A5FDC /* SignUpViewModel.swift */,
 				D681291A2AFEA56B00D53477 /* LogInViewModel.swift */,
+				D658D3672B14067B0018D4B4 /* SessionManager.swift */,
 			);
 			path = "3-UI";
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				A5050A2027F37D4600C6CABA /* ClassifierViewModel.swift in Sources */,
 				FBF9346A2AF4557F009B3016 /* GrasasView.swift in Sources */,
 				A5D6918D27EA48B100101791 /* Constants.swift in Sources */,
+				D658D3682B14067B0018D4B4 /* SessionManager.swift in Sources */,
 				D64B06B52B030B3500E1D864 /* Ingredientes2ViewModel.swift in Sources */,
 				A562F07327EE7E7A00602D4E /* Classification.swift in Sources */,
 				FB6DE0712AD9B99600FA3526 /* AccountViewModel.swift in Sources */,
