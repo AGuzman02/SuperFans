@@ -20,7 +20,7 @@ struct PredictiveLabelView: View {
                 
                //DispatchQueue.global().async{
                     DispatchQueue.main.async{
-                        cartVM.addIng(labelData.label)
+                        cartVM.addIng(labelData.label.lowercased())
                         cartVM.addVid(labelData.video)
                         isShowingMessage = true
                     }

@@ -591,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"coreML-nanostarter/Preview Content\"";
-				DEVELOPMENT_TEAM = 6UHLRRX8MN;
+				DEVELOPMENT_TEAM = LV754DNZQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "coreML-nanostarter/Info.plist";
@@ -628,7 +628,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"coreML-nanostarter/Preview Content\"";
-				DEVELOPMENT_TEAM = 6UHLRRX8MN;
+				DEVELOPMENT_TEAM = LV754DNZQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "coreML-nanostarter/Info.plist";
