@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct SearchView: View {
-    
+    @EnvironmentObject var cartVM : cartViewModel
     @EnvironmentObject var recetaVM : RecetasViewModel
     @EnvironmentObject var cartVM : cartViewModel
     @State var nameSearch : String = ""
-    
-    var filterByName: [RecetasModel] {
-        guard !nameSearch.isEmpty else { return recetaVM.arrReceta }
-            return recetaVM.arrReceta.filter { receta in
+
+    var filteredMeals: [RecetasModel] {
+        guard !nameSearch.isEmpty else { return cartVM.arrRecetaCarr }
+        return cartVM.arrRecetaCarr.filter { receta in
                 receta.recetaname!.lowercased().contains(nameSearch.lowercased())
             }
         }
@@ -33,18 +33,18 @@ struct SearchView: View {
             ScrollView {
                     VStack {
                         
-                        ForEach(filterByName, id: \.self){
+                        ForEach(filteredMeals, id: \.self){
                             item in
                             Receta(receta: item)
                         }
-                        
-                        
+
                     }
                     .navigationTitle("Recetas")
                     .searchable(text: $nameSearch, prompt: "Busca Recetas")
                     .task{
                         do{
                             try await recetaVM.getRecetas()
+                             try await cartVM.sendCarrito()
                         } catch {
                             print("Error getting")
                         }

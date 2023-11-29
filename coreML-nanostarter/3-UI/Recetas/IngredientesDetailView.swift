@@ -17,35 +17,36 @@ struct IngredientesDetailView: View {
     let receta : RecetasModel
     
     var body: some View {
-        
-        VStack{
-            
-            HStack{
+        ScrollView{
+            VStack{
                 
-                Spacer()
+                HStack{
+                    
+                    Spacer()
+                    
+                    Text(receta.recetaname ?? "")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    Text("\(receta.idreceta ?? 0)")
+                    
+                    
+                    Spacer()
+                    
+                     /*Image(systemName: receta.isFavorite ? "star.fill" : "star")
+                     .foregroundColor(.green)
+                     .font(.system(size:25))
+                     .onTapGesture {
+                     recetaViewModel.arrReceta[recetaViewModel.arrReceta.firstIndex(of: receta) ?? 0].isFavorite.toggle()
+                     }*/
+                    
+                     
+                    
+                    Spacer()
+                    
+                }.padding(.top)
                 
-                Text(receta.recetaname ?? "")
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                Text("\(receta.idreceta ?? 0)")
-
-                
-                Spacer()
-                /*
-                Image(systemName: receta.isFavorite ? "star.fill" : "star")
-                    .foregroundColor(.green)
-                    .font(.system(size:25))
-                    .onTapGesture {
-                        recetaViewModel.arrReceta[recetaViewModel.arrReceta.firstIndex(of: receta) ?? 0].isFavorite.toggle()
-                    }
-                */
-                
-                Spacer()
-                
-            }.padding(.top)
-            
-            AsyncImage(url: URL(string: "\(String(describing: receta.img))")){
+                AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(String(describing: receta.img))" )){
                     phase in if let image = phase.image {
                         image
                             .resizable()
@@ -56,58 +57,95 @@ struct IngredientesDetailView: View {
                         Text("No hay imagen").foregroundColor(.black)
                     }
                     
-            }.padding(.bottom)
+                }.padding(.bottom)
                 
-            Text("Ingredientes")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.bottom, 10)
-            
-            Divider()
-            
-            List {
-                ForEach(ingredientesVM2.arrIngredientes2, id: \.ingrediente) { item in
-                    Text(item.ingrediente)
-                        .font(.headline)
-                        .padding(.bottom, 5)
+                Divider()
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(Color.green) // o cualquier otro color que prefieras
+                        .cornerRadius(10) // ajusta el valor según tus necesidades
+                        .padding(.horizontal,20)
+
+                    Text("INGREDIENTES")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
+                
+                /*List (ingredientesVM2.arrIngredientes2, id: \.ingrediente) { item in
+                 //ForEach(ingredientesVM2.arrIngredientes2, id: \.ingrediente) { item in
+                 Text(item.ingrediente)
+                 .font(.headline)
+                 .padding(.bottom, 5)
+                 //}
+                 //.padding(.horizontal, 20)
+                 }.padding(.horizontal, 20)
+                 .listStyle(PlainListStyle())
+                 .frame(minHeight: 0, maxHeight: .infinity)*/
+                
+                //ScrollView {
+                VStack {
+                    ForEach(ingredientesVM2.arrIngredientes2, id: \.ingrediente) { item in
+                        Text(item.ingrediente)
+                            .font(.headline)
+                            .padding(.bottom, 5)
+                    }
+                }
+                
                 .padding(.horizontal, 20)
-            }
-            .listStyle(PlainListStyle())
-            .task {
-                do {
-                    try await ingredientesVM2.getIngredientesData2(idreceta: receta.idreceta ?? 0)
-                } catch {
-                    print("Error: \(error)")
+                
+                
+                .task {
+                    do {
+                        try await ingredientesVM2.getIngredientesData2(idreceta: receta.idreceta ?? 0)
+                    } catch {
+                        print("Error: \(error)")
+                    }
+                }
+                //PASOS
+                Divider()
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(Color.green) // o cualquier otro color que prefieras
+                        .cornerRadius(10) // ajusta el valor según tus necesidades
+                        .padding(.horizontal,20)
+
+                    Text("PASOS")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                
+                
+                
+                /*List {
+                    ForEach(pasosVM.arrPasos, id: \.instruccion) { item in
+                        Text(item.instruccion ?? "")
+                            .font(.headline)
+                            .padding(.bottom, 5)
+                    }
+                    .padding(.horizontal, 20)
+                }
+                .listStyle(PlainListStyle())*/
+                
+                VStack {
+                    ForEach(pasosVM.arrPasos, id: \.instruccion) { item in
+                        Text(item.instruccion ?? "")
+                            .font(.headline)
+                            .padding(.bottom, 5)
+                    }
+                }.padding(.horizontal,20)
+                .task {
+                    do {
+                        try await pasosVM.getPasos(idreceta: receta.idreceta ?? 0)
+                        print("Si lo llamo")
+                    } catch {
+                        print("Error: \(error)")
+                    }
                 }
             }
-            //PASOS
-            Text("Pasos")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.bottom, 10)
             
-            Divider()
-            
-            List {
-                ForEach(pasosVM.arrPasos, id: \.instruccion) { item in
-                    Text(item.instruccion ?? "")
-                        .font(.headline)
-                        .padding(.bottom, 5)
-                }
-                .padding(.horizontal, 20)
-            }
-            .listStyle(PlainListStyle())
-            .task {
-                do {
-                    try await pasosVM.getPasos(idreceta: receta.idreceta ?? 0)
-                    print("Si lo llamo")
-                } catch {
-                    print("Error: \(error)")
-                }
-            }
         }
-        
     }
 }
 

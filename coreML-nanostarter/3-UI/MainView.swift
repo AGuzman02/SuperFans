@@ -11,17 +11,15 @@ struct MainView: View {
     @StateObject var cartVM = cartViewModel()
     @StateObject var recetaVM = RecetasViewModel()
     
-    
     var body: some View {
         TabView{
-            ClassificationView()
                 .environmentObject(cartVM)
                 .tabItem{
                     Image(systemName: "house.fill")
                 }
             SearchView()
                 .environmentObject(cartVM)
-                .environmentObject(recetaVM)
+                .environmentObject(recetaVM)                
                 .tabItem{
                     Image(systemName: "magnifyingglass")
                 }

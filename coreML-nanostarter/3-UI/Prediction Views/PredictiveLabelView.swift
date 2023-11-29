@@ -21,6 +21,7 @@ struct PredictiveLabelView: View {
                //DispatchQueue.global().async{
                     DispatchQueue.main.async{
                         cartVM.addIng(labelData.label)
+                        cartVM.addIng("salt")
                         cartVM.addVid(labelData.video)
                         isShowingMessage = true
                     }
@@ -38,12 +39,10 @@ struct PredictiveLabelView: View {
             Alert(
                 title: Text("\(cartVM.arrCart.last ?? "") se añadió al carrito"),
                 dismissButton: .default(Text("Cerrar").foregroundColor(Color.green))
-                
                 /*
                     YoutubeView(videoID: cartVM.arrVid.last ?? "")
                         .padding()
-                        .aspectRatio(contentMode: .fit)
-                    
+                        .aspectRatio(contentMode: .fit)     
                     
                      NavigationLink(destination: cartView().environmentObject(cartVM)) {
                      Text("Ver Carrito")
