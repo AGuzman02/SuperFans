@@ -16,6 +16,8 @@ struct AccSettingsView: View {
     @State private var buttonSize: CGFloat = 60
     @StateObject var updateWeightVM = UpdateWeightViewModel()
     @StateObject var updateVM = UpdateNameViewModel()
+    @StateObject var updateAgeVM = UpdateAgeViewModel()
+    @StateObject var updateHeightVM = UpdateHeightViewModel()
     
     var body: some View {
         VStack{
@@ -117,6 +119,8 @@ struct AccSettingsView: View {
                                 do {
                                     try await updateWeightVM.updateUserWeight(weight: perfilModel.perfil.first?.weight ?? 0)
                                     try await updateVM.updateUser(name: perfilModel.perfil.first?.fname ?? "")
+                                    try await updateAgeVM.updateUserAge(age: perfilModel.perfil.first?.age ?? 0)
+                                    try await updateHeightVM.updateUserHeight(height: perfilModel.perfil.first?.height ?? 0)
 
                                 } catch {
                                     print("Error al actualizar el peso: \(error)")

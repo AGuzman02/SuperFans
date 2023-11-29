@@ -54,6 +54,8 @@
 		FB7AF9AD2AE0568A00205347 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AF9AC2AE0568A00205347 /* UserModel.swift */; };
 		FB7AF9AF2AE056FD00205347 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */; };
 		FB7AF9B12AE06EE800205347 /* Comidasmodel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FB7AF9B02AE06EE700205347 /* Comidasmodel.mlmodel */; };
+		FB8DC8682B16CD080005D7F1 /* UpdateAgeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8DC8672B16CD080005D7F1 /* UpdateAgeViewModel.swift */; };
+		FB8DC86A2B16CDCD0005D7F1 /* UpdateHeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8DC8692B16CDCD0005D7F1 /* UpdateHeightViewModel.swift */; };
 		FBAAEB6E2AE1E71A004B22BE /* Contraview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAEB6D2AE1E71A004B22BE /* Contraview.swift */; };
 		FBAAEB702AE1E799004B22BE /* SubirRecetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAEB6F2AE1E799004B22BE /* SubirRecetaView.swift */; };
 		FBAC819F2B0EB17200E84A9E /* CircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC819E2B0EB17200E84A9E /* CircleProgress.swift */; };
@@ -114,6 +116,8 @@
 		FB7AF9AC2AE0568A00205347 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FB7AF9B02AE06EE700205347 /* Comidasmodel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Comidasmodel.mlmodel; sourceTree = "<group>"; };
+		FB8DC8672B16CD080005D7F1 /* UpdateAgeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAgeViewModel.swift; sourceTree = "<group>"; };
+		FB8DC8692B16CDCD0005D7F1 /* UpdateHeightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHeightViewModel.swift; sourceTree = "<group>"; };
 		FBAAEB6D2AE1E71A004B22BE /* Contraview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contraview.swift; sourceTree = "<group>"; };
 		FBAAEB6F2AE1E799004B22BE /* SubirRecetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubirRecetaView.swift; sourceTree = "<group>"; };
 		FBAC819E2B0EB17200E84A9E /* CircleProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgress.swift; sourceTree = "<group>"; };
@@ -290,9 +294,11 @@
 				FB72166C2AD8A95000963E4B /* AlergiasView.swift */,
 				FB6DE0702AD9B99600FA3526 /* AccountViewModel.swift */,
 				FB7AF9AE2AE056FD00205347 /* UserViewModel.swift */,
-				D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */,
 				D6592DB32AFDCF2F008A5FDC /* PerfilesViewModel.swift */,
+				D6592DB12AFDCF14008A5FDC /* UpdateNameViewModel.swift */,
 				D68711682B00091600B13346 /* UpdateWeightViewModel.swift */,
+				FB8DC8672B16CD080005D7F1 /* UpdateAgeViewModel.swift */,
+				FB8DC8692B16CDCD0005D7F1 /* UpdateHeightViewModel.swift */,
 				FBAC819E2B0EB17200E84A9E /* CircleProgress.swift */,
 			);
 			path = Account;
@@ -433,6 +439,7 @@
 				FB7AF9AF2AE056FD00205347 /* UserViewModel.swift in Sources */,
 				FBAC819F2B0EB17200E84A9E /* CircleProgress.swift in Sources */,
 				D6592DB62AFDCF50008A5FDC /* SignUpViewModel.swift in Sources */,
+				FB8DC86A2B16CDCD0005D7F1 /* UpdateHeightViewModel.swift in Sources */,
 				A5050A2027F37D4600C6CABA /* ClassifierViewModel.swift in Sources */,
 				FBF9346A2AF4557F009B3016 /* GrasasView.swift in Sources */,
 				A5D6918D27EA48B100101791 /* Constants.swift in Sources */,
@@ -449,6 +456,7 @@
 				FB7AF9AD2AE0568A00205347 /* UserModel.swift in Sources */,
 				A5236B46280A1EE500DC9D7F /* LaunchScreenView.swift in Sources */,
 				FBAAEB702AE1E799004B22BE /* SubirRecetaView.swift in Sources */,
+				FB8DC8682B16CD080005D7F1 /* UpdateAgeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
