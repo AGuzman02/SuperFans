@@ -19,19 +19,18 @@ struct ProteinasView: View {
                         .foregroundColor(Color.green)
                         .cornerRadius(10)
 
-                    Text("¿Qué son las proteínas?")
+                    Text("¿Qué Son Las Proteínas?")
                         .font(.title)
                         .fontWeight(.bold)
                         .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
+                        .padding(5)
+
                 }
                 .padding()
 
                 HStack {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Las proteínas son nutrientes esenciales que desempeñan un papel vital en el desarrollo, crecimiento y reparación de tejidos en el cuerpo. Son fundamentales para la estructura y función de las células y son componentes clave de hormonas, enzimas y otros químicos del cuerpo.")
-                    }
-
-                    Spacer()
+                    Text("Las proteínas son nutrientes esenciales que desempeñan un papel vital en el desarrollo, crecimiento y reparación de tejidos en el cuerpo. Son fundamentales para la estructura y función de las células y son componentes clave de hormonas, enzimas y otros químicos del cuerpo.")
 
                     Image("las-proteinas")
                         .resizable()
@@ -40,10 +39,11 @@ struct ProteinasView: View {
                 }
 
                 Divider()
-                Text("Funciones principales de las proteínas:")
+                Text("Funciones Principales de las Proteínas:")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
+                    .multilineTextAlignment(.center)
                 Text("1. Construcción y reparación de tejidos.")
                 Text("2. Funciones enzimáticas y hormonales.")
                 Text("3. Transporte y almacenamiento de moléculas.")
@@ -80,7 +80,7 @@ struct ProteinasView: View {
                  
 
             }
-            .padding()
+            .padding(.horizontal)
         }
     }
 }
