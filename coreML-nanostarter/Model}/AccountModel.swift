@@ -13,6 +13,7 @@ struct Account : Identifiable, Decodable {
     let name: String
     let age: Int
     let weight: Int
-    let height: Double
+    let height: Int
     let gender: Bool
+    let actFis: Double
 }

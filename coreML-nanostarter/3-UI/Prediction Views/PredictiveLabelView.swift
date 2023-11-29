@@ -18,14 +18,13 @@ struct PredictiveLabelView: View {
             
             Button("\(labelData.emoji)"){
                 
-                DispatchQueue.global().async{
+               //DispatchQueue.global().async{
                     DispatchQueue.main.async{
                         cartVM.addIng(labelData.label)
-                        cartVM.addIng("salt")
                         cartVM.addVid(labelData.video)
                         isShowingMessage = true
                     }
-                }
+                //}
             }
             .padding()
             .background(Circle()
@@ -35,41 +34,30 @@ struct PredictiveLabelView: View {
             
             
         }
-        
-        
-       /* .popover(isPresented: $isShowingMessage){
-            VStack{
-                
-                
-                
-                Text("\(cartVM.arrCart.last ?? "") se ha añadido al carrito")
-                    .font(.title)
-                    .padding(.bottom, 20)
-                    .padding(.top)
-                
-                YoutubeView(videoID: cartVM.arrVid.last ?? "")
-                    .padding()
-                    .aspectRatio(contentMode: .fit)
-                
-                NavigationView{
-                    NavigationLink(destination: cartView()){
-                        VStack{
-                            
-                            Text("Ver Carrito")
-                                .font(.system(size:35))
-                                .foregroundColor(Color.white)
-                                .padding(.top,5)
-
-                        }
-                    }
-                        .ignoresSafeArea()
+        .alert(isPresented: $isShowingMessage) {
+            Alert(
+                title: Text("\(cartVM.arrCart.last ?? "") se añadió al carrito"),
+                dismissButton: .default(Text("Cerrar").foregroundColor(Color.green))
+                /*
+                    YoutubeView(videoID: cartVM.arrVid.last ?? "")
                         .padding()
-                        .background(Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75)))
-                        .cornerRadius(25)
-                        .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 10)
-                    }
-                }
-            }*/
+                        .aspectRatio(contentMode: .fit)     
+                    
+                     NavigationLink(destination: cartView().environmentObject(cartVM)) {
+                     Text("Ver Carrito")
+                     .font(.system(size: 35))
+                     .foregroundColor(Color.white)
+                     .padding(.top, 5)
+                     }
+                     .background(
+                     RoundedRectangle(cornerRadius: 10)
+                     .foregroundColor(Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75)))
+                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray.opacity(0.5), lineWidth: 1))
+                     .padding()
+                     )
+                */
+            )
+        }
          
         }
     }

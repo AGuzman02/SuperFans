@@ -1,16 +1,24 @@
 //
-//  CartModel.swift
-//  coreML-nanostarter
+//  PerfilesModel.swift
+//  AppChistesJeannette
 //
-//  Created by Alumno on 07/11/23.
+//  Created by Concepción Hernández Flores on 15/10/23.
 //
 
 import Foundation
 
-struct CartModel {
-    var arrCart: [String]
+struct Cart: Decodable {
+    var arrCart: [CartModel]
     
-    init() {
-        self.arrCart = [""]
+    enum CodingKeys : String, CodingKey {
+        case arrCart = "cart"
+    }
+}
+
+struct CartModel : Codable, Identifiable, Hashable {
+    var ingrediente: String?
+    
+    enum CodingKeys : String, CodingKey {
+        case ingrediente
     }
 }

@@ -11,11 +11,10 @@ import SwiftUI
 
 class Ingredientes2ViewModel : ObservableObject {
     @Published var arrIngredientes2 = [Ingredientes2Model]()
-    @Published var idReceta = 64
     
     // IngredientesModel.swift
     //Ya quedo
-    struct Ingredientes2Model: Decodable {
+    struct Ingredientes2Model: Decodable, Hashable {
         var ingrediente: String
         var lsm: String?
         var idreceta: Int

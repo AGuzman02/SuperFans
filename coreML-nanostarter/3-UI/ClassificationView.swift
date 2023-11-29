@@ -10,6 +10,7 @@ import SwiftUI
 struct ClassificationView: View {
     @EnvironmentObject var predictionStatus: PredictionStatus
     @StateObject var classifierViewModel = ClassifierViewModel()
+    @EnvironmentObject var cartVM : cartViewModel
 
     var body: some View {
         let predictionLabel = predictionStatus.topLabel
@@ -31,17 +32,20 @@ struct ClassificationView: View {
                                         
                                         Spacer()
                                         
+                                        
                                         NavigationLink(destination: cartView()){
-                                            Image(systemName: "cart.fill")
+                                            Image(systemName: cartVM.arrCart.isEmpty ? "cart" : "cart.fill")
                                                 .font(.system(size:40))
                                         }
+                                         
                                     }.padding(.trailing)
                                     
                                     Spacer()
                                 }
-                                
-                                RoundedRectangle(cornerRadius: 20).stroke(Color.green, lineWidth: 2)
-                                    .frame(width: geo.size.width/1.3, height: geo.size.height/2.4)
+                                Image("CornersRounded")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width/1.3)
                             }
                             
                             PredictionResultView(labelData: classifierViewModel.getPredictionData(label: predictionLabel))
@@ -69,7 +73,7 @@ struct ClassificationView_Previews: PreviewProvider {
             .environmentObject(PredictionStatus())
             .environmentObject(cartViewModel())
             .environmentObject(ClassifierViewModel())
-            
+            .preferredColorScheme(.dark)
         
     }
 }

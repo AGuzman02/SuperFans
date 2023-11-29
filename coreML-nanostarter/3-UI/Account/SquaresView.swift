@@ -10,11 +10,12 @@ import SwiftUI
 struct SquaresView: View {
     
     @EnvironmentObject var ViewModel : AccountViewModel
+    @EnvironmentObject var perfilModel : PerfilesViewModel
 
     
     var body: some View {
         VStack {
-            
+            /*
             NavigationLink(destination: SubirRecetaView()){
                 VStack{
                     
@@ -34,6 +35,7 @@ struct SquaresView: View {
                 .background(Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75)))
                 .cornerRadius(25)
                 .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 10)
+             */
             
             HStack {
                 NavigationLink(destination: AlergiasView()){
@@ -57,7 +59,10 @@ struct SquaresView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: AccSettingsView().environmentObject(ViewModel)){
+                NavigationLink(destination: AccSettingsView()
+                    .environmentObject(ViewModel)
+                    .environmentObject(perfilModel)
+                ){
                     
                     VStack{
                         Image(systemName: "pencil")
@@ -85,10 +90,12 @@ struct SquaresView_Previews: PreviewProvider {
     static var previews: some View {
         SquaresView()
             .environmentObject(AccountViewModel())
+            .environmentObject(PerfilesViewModel())
             .previewDevice("iPhone 14 Pro Max")
         
         SquaresView()
             .environmentObject(AccountViewModel())
+            .environmentObject(PerfilesViewModel())
             .previewDevice("iPhone SE (3rd generation)")
     }
 }
