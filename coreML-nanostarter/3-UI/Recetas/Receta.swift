@@ -17,14 +17,15 @@ struct Receta: View {
     var body: some View {
         
         let screen = UIScreen.main.bounds
-            
+        
         NavigationLink(destination: IngredientesDetailView(receta: receta)){
             ZStack {
                 Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75))
-                .frame(width: screen.width - screen.width * 0.05, height: screen.height - screen.height * 0.79)
+                    .frame(width: screen.width - screen.width * 0.05, height: screen.height - screen.height * 0.79)
                     .cornerRadius(15)
                     .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
-
+                
+                HStack{
                     AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(String(describing: receta.img))" )){
                         phase in if let image = phase.image {
                             image
@@ -39,7 +40,7 @@ struct Receta: View {
                             Text("No imagen").foregroundColor(.black)
                         }
                     }
-                        
+                    
                     
                     Spacer()
                     
@@ -72,22 +73,22 @@ struct Receta: View {
                         }) {
                             Image(systemName: recetaVM.isFavorite(receta: receta) ? "star.fill" : "star")
                             //Image(systemName: cartVM.isFavorite2(receta: receta) ? "star.fill" : "star")
-
+                            
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(.yellow)
                         }
-
+                        
                         
                     }
                     .foregroundColor(.black)
                     .padding(.trailing, 8)
                 }
-                .padding(.horizontal)
             }
-            
+            .padding(.horizontal)
         }
+        
     }
 }
 

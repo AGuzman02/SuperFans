@@ -13,6 +13,7 @@ struct MainView: View {
     
     var body: some View {
         TabView{
+            ClassificationView()
                 .environmentObject(cartVM)
                 .tabItem{
                     Image(systemName: "house.fill")

@@ -10,7 +10,6 @@ import SwiftUI
 struct SearchView: View {
     @EnvironmentObject var cartVM : cartViewModel
     @EnvironmentObject var recetaVM : RecetasViewModel
-    @EnvironmentObject var cartVM : cartViewModel
     @State var nameSearch : String = ""
 
     var filteredMeals: [RecetasModel] {
