@@ -14,9 +14,13 @@ struct cartView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(cartVM.arrCart, id: \.self)
-                { item in
+                ForEach(Array(zip(cartVM.arrCart, cartVM.arrVid)), id: \.0)
+                { item, item2 in
                     HStack {
+                        NavigationLink(destination: YoutubeView(videoID: item2)){
+                            Image(systemName: "play.fill")
+                        }.frame(width: 20)
+                                                
                         Text(item)
                         
                         Spacer()
@@ -27,10 +31,10 @@ struct cartView: View {
                                 cartVM.arrVid.remove(at: index)
                             }
                         }
-                    }
+                    }.buttonStyle(BorderlessButtonStyle())
                 }
             }
-        }
+        }.navigationTitle("Carrito")
     }
 }
 

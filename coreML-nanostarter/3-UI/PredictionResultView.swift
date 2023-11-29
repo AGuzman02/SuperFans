@@ -7,9 +7,7 @@ import SwiftUI
 
 struct PredictionResultView: View {
     private(set) var labelData: Classification
-    
-    
-    
+        
     var body: some View {
         
             VStack{

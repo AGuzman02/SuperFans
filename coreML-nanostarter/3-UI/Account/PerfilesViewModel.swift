@@ -36,9 +36,15 @@ class PerfilesViewModel : ObservableObject {
         }
         
         print (result)
-
         
-
+    }
+    
+    func getTargetCal() -> Double{
+        if perfil.first?.gender == true{
+            return 66.47 + (13.75 * (perfil.first?.weight ?? 0)) + (5 * Double((perfil.first?.height ?? 0))) - (6.74 * Double((perfil.first?.age ?? 0)))
+        } else {
+            return 655.1 + (9.56 * (perfil.first?.weight ?? 0)) + (1.85 * Double((perfil.first?.height ?? 0))) - (4.68 * Double((perfil.first?.age ?? 0)))
+        }
         
     }
 }

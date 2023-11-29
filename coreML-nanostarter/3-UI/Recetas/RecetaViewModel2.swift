@@ -8,7 +8,6 @@ class RecetasViewModel : ObservableObject {
     @Published var idPerfil = 64
     @Published var idReceta = 64
 
-    
     func getRecetas() async throws {
         
         guard let url = URL(string: "https://api-superfans.onrender.com/users/recetas")

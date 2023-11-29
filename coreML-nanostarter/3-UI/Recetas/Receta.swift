@@ -11,6 +11,7 @@ struct Receta: View {
     
     let receta: RecetasModel
     @EnvironmentObject var recetaVM : RecetasViewModel
+    @EnvironmentObject var ingredientesVM2 : Ingredientes2ViewModel 
     @EnvironmentObject var cartVM : cartViewModel
 
     var body: some View {
@@ -23,7 +24,7 @@ struct Receta: View {
                 .frame(width: screen.width - screen.width * 0.05, height: screen.height - screen.height * 0.79)
                     .cornerRadius(15)
                     .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
-                HStack(){
+
                     AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(String(describing: receta.img))" )){
                         phase in if let image = phase.image {
                             image
