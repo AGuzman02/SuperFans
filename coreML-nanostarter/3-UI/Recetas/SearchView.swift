@@ -11,6 +11,7 @@ struct SearchView: View {
     @EnvironmentObject var cartVM : cartViewModel
     @EnvironmentObject var recetaVM : RecetasViewModel
     @State var nameSearch : String = ""
+    @State private var isAll = false
 
     var filteredMeals: [RecetasModel] {
         guard !nameSearch.isEmpty else { return cartVM.arrRecetaCarr }
@@ -18,23 +19,31 @@ struct SearchView: View {
                 receta.recetaname!.lowercased().contains(nameSearch.lowercased())
             }
         }
-    /*
-    var filteredMeal: [RecetasModel]{
-        return filterByName.filter{ receta in
-            return ingredientesVM2.arrIngredientes2.contains{ ingredient in
-                cartVM.arrCart.contains(ingredient.ingrediente)
-            }
-        }
-    }*/
+    
+     var allMeals: [RecetasModel] {
+         guard !nameSearch.isEmpty else { return recetaVM.arrReceta }
+         return recetaVM.arrReceta.filter { receta in
+                 receta.recetaname!.lowercased().contains(nameSearch.lowercased())
+             }
+         }
     
     var body: some View {
         NavigationView {
             ScrollView {
                     VStack {
                         
-                        ForEach(filteredMeals, id: \.self){
-                            item in
-                            Receta(receta: item)
+                        Toggle("",isOn: $isAll).padding(.trailing)
+                        
+                        if isAll{
+                            ForEach(filteredMeals, id: \.self){
+                                item in
+                                Receta(receta: item)
+                            }
+                        } else{
+                            ForEach(allMeals, id: \.self){
+                                item in
+                                Receta(receta: item)
+                            }
                         }
 
                     }
