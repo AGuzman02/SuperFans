@@ -43,7 +43,7 @@ struct IngredientesDetailView: View {
                     
                 }.padding(.top)
                 
-                AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(String(describing: receta.img))" )){
+                AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(receta.img ?? "")" )){
                     phase in if let image = phase.image {
                         image
                             .resizable()
