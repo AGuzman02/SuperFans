@@ -17,11 +17,24 @@ struct CaloriasView: View {
                         .foregroundColor(Color.green) // o cualquier otro color que prefieras
                         .cornerRadius(10) // ajusta el valor según tus necesidades
                     
-                    Text("¿Qué Son Las Calorias?")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.vertical, 5)
+                    ZStack{
+                        Text("¿Qué Son Las Calorias?")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.vertical, 5)
+                            .offset(x:2.2,y:1.5)
+                            .foregroundColor(.black)
+                        
+                        Text("¿Qué Son Las Calorias?")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.vertical, 5)
+                            .foregroundColor(.white)
+                        
+                    }
+
                 }
                 
                 Text("Las calorías son una medida de la energía que se obtiene de los alimentos. Son esenciales para el funcionamiento adecuado del cuerpo y se pueden encontrar en diferentes tipos de alimentos, como carbohidratos, proteínas y grasas.")

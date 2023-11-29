@@ -19,12 +19,25 @@ struct ProteinasView: View {
                         .foregroundColor(Color.green)
                         .cornerRadius(10)
 
-                    Text("¿Qué Son Las Proteínas?")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.center)
-                        .padding(5)
+                    ZStack{
+                        Text("¿Qué Son Las Proteínas?")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.center)
+                            .padding(5)
+                            .offset(x:2.2,y:1.5)
+                            .foregroundColor(.black)
+                        
+                        Text("¿Qué Son Las Proteínas?")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.center)
+                            .padding(5)
+                            .foregroundColor(.white)
+                    }
+                    
 
                 }
                 .padding()

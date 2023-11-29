@@ -9,12 +9,9 @@ import SwiftUI
 
 struct NutritionInfo: View {
     
-    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        
-        let primaryColor: Color = colorScheme == .light ? .white : .black
-        
+                
         NavigationView {
             VStack
             {
@@ -42,13 +39,13 @@ struct NutritionInfo: View {
                                                     
                                                     Text("CALORIAS")
                                                         .padding(10)
-                                                        .foregroundColor(primaryColor)
+                                                        .foregroundColor(.black)
                                                         .fontWeight(.heavy)
-                                                        .offset(x:2,y:1.5)
+                                                        .offset(x:2.2,y:1.5)
                                                     
                                                     Text("CALORIAS")
                                                         .padding(10)
-                                                        .foregroundColor(.primary)
+                                                        .foregroundColor(.white)
                                                         .fontWeight(.heavy)
                                                 }
                                             }
@@ -71,15 +68,16 @@ struct NutritionInfo: View {
                                                     
                                                     Text("CARBOHIDRATOS")
                                                         .padding(10)
-                                                        .foregroundColor(primaryColor)
+                                                        .foregroundColor(.black)
                                                         .fontWeight(.heavy)
-                                                        .offset(x:2,y:1.5)
+                                                        .offset(x:2.2,y:1.5)
                                                     
                                                     Text("CARBOHIDRATOS")
                                                         .padding(10)
-                                                        .foregroundColor(.primary)
+                                                        .foregroundColor(.white)
                                                         .fontWeight(.heavy)
                                                 }
+                                                .multilineTextAlignment(.leading)
                                                 
                                             }
                                     )
@@ -105,13 +103,13 @@ struct NutritionInfo: View {
                                                     
                                                     Text("PROTEINAS")
                                                         .padding(10)
-                                                        .foregroundColor(primaryColor)
+                                                        .foregroundColor(.black)
                                                         .fontWeight(.heavy)
-                                                        .offset(x:2,y:1.5)
+                                                        .offset(x:2.2,y:1.5)
                                                     
                                                     Text("PROTEINAS")
                                                         .padding(10)
-                                                        .foregroundColor(.primary)
+                                                        .foregroundColor(.white)
                                                         .fontWeight(.heavy)
                                                 }
                                             }
@@ -134,13 +132,13 @@ struct NutritionInfo: View {
                                                     
                                                     Text("LIPIDOS")
                                                         .padding(10)
-                                                        .foregroundColor(primaryColor)
+                                                        .foregroundColor(.black)
                                                         .fontWeight(.heavy)
-                                                        .offset(x:2,y:1.5)
+                                                        .offset(x:2.2,y:1.5)
                                                     
                                                     Text("LIPIDOS")
                                                         .padding(10)
-                                                        .foregroundColor(.primary)
+                                                        .foregroundColor(.white)
                                                         .fontWeight(.heavy)
                                                 }
                                             }

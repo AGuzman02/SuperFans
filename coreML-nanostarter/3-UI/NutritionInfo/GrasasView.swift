@@ -16,11 +16,23 @@ struct GrasasView: View {
                         .foregroundColor(Color.green) // o cualquier otro color que prefieras
                         .cornerRadius(10) // ajusta el valor según tus necesidades
                     
-                    Text("¿Qué Son Los Lipidos?")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.vertical,5)
+                    ZStack{
+                        Text("¿Qué Son Los Lipidos?")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.vertical,5)
+                            .offset(x:2.2,y:1.5)
+                            .foregroundColor(.black)
+                        
+                        Text("¿Qué Son Los Lipidos?")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.vertical,5)
+                            .foregroundColor(.white)
+                    }
+
                 }
                 .padding()
                 VStack {
