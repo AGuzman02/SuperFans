@@ -21,70 +21,78 @@ struct Receta: View {
         NavigationLink(destination: IngredientesDetailView(receta: receta)){
             ZStack {
                 Color(.init(srgbRed: 130 / 255, green: 232 / 255, blue: 90 / 255, alpha: 0.75))
-                    .frame(width: screen.width - screen.width * 0.05, height: screen.height - screen.height * 0.79)
+                    .frame(width: screen.width - screen.width * 0.05, height: screen.height - screen.height * 0.65)
                     .cornerRadius(15)
                     .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
                 
-                HStack{
-                    AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(String(describing: receta.img))" )){
-                        phase in if let image = phase.image {
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: screen.width * 0.45)
-                                .cornerRadius(25)
-                                .frame(maxHeight: 150)
-                                .padding(.leading, 6)
-                                .shadow(radius: 5, x: 0, y: 5)
-                        } else if phase.error != nil {
-                            Text("No imagen").foregroundColor(.black)
-                        }
-                    }
+                VStack{
                     
+                    Text(receta.recetaname ?? "No hay nombre BDD")
+                        .foregroundColor(.black)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.center)
                     
-                    Spacer()
-                    
-                    VStack(alignment: .trailing){
-                        Text(receta.recetaname ?? "No hay nombre BDD")
-                            .padding(.vertical, 4)
-                        
-                        //Text(receta.calories ?? 0).padding(.bottom,5)
-                        
-                        HStack {
-                            Text("\(receta.tiempo ?? -1) min  ")
-                                .font(.system(size: 20, weight: .light))
-                            
-                            Image(systemName: "deskclock")
-                        }
-                        Button(action: {
-                            Task {
-                                do {
-                                    if recetaVM.isFavorite(receta: receta) {
-                                        try await recetaVM.deleteRecetaFav(idPerfil: 22, idReceta: receta.idreceta ?? 0)
-                                    } else {
-                                        try await recetaVM.addRecetaFav(idPerfil: 22, idReceta: receta.idreceta ?? 0)
-                                    }
-                                }
-                                catch {
-                                    print("Post fav error: \(error)")
-                                }
-                                
+                    HStack (alignment: .center){
+                        AsyncImage(url: URL(string: "https://api-superfans.onrender.com/users/imagen/\(receta.img ?? "")" )){
+                            phase in if let image = phase.image {
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: screen.width * 0.55)
+                                    .cornerRadius(25)
+                                    .frame(maxHeight: screen.height - screen.height * 0.76)
+                                    .padding(.leading, 6)
+                                    .shadow(radius: 5, x: 0, y: 5)
+                            } else if phase.error != nil {
+                                Text("No imagen").foregroundColor(.black)
                             }
-                        }) {
-                            Image(systemName: recetaVM.isFavorite(receta: receta) ? "star.fill" : "star")
-                            //Image(systemName: cartVM.isFavorite2(receta: receta) ? "star.fill" : "star")
-                            
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.yellow)
                         }
                         
                         
+                        Spacer()
+                        
+                        VStack(alignment: .trailing){
+                            
+                            Text("\(receta.calories ?? -1) calorias").padding(.bottom,5)
+                            
+                            HStack {
+                                Text("\(receta.tiempo ?? -1) min  ")
+                                    .font(.system(size: 20, weight: .light))
+                                
+                                Image(systemName: "deskclock")
+                            }
+                            Button(action: {
+                                Task {
+                                    do {
+                                        if recetaVM.isFavorite(receta: receta) {
+                                            try await recetaVM.deleteRecetaFav(idPerfil: 22, idReceta: receta.idreceta ?? 0)
+                                        } else {
+                                            try await recetaVM.addRecetaFav(idPerfil: 22, idReceta: receta.idreceta ?? 0)
+                                        }
+                                    }
+                                    catch {
+                                        print("Post fav error: \(error)")
+                                    }
+                                    
+                                }
+                            }) {
+                                Image(systemName: recetaVM.isFavorite(receta: receta) ? "star.fill" : "star")
+                                //Image(systemName: cartVM.isFavorite2(receta: receta) ? "star.fill" : "star")
+                                
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.yellow)
+                            }
+                            
+                            
+                        }
+                        .foregroundColor(.black)
+                        .padding(.trailing, 8)
+                        
                     }
-                    .foregroundColor(.black)
-                    .padding(.trailing, 8)
                 }
+                
             }
             .padding(.horizontal)
         }
