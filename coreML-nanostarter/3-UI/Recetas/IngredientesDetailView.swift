@@ -28,10 +28,7 @@ struct IngredientesDetailView: View {
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("\(receta.idreceta ?? 0)")
-                    
-                    
-                    Spacer()
+                    //Spacer()
                     
                      /*Image(systemName: receta.isFavorite ? "star.fill" : "star")
                      .foregroundColor(.green)
