@@ -10,97 +10,120 @@ import SwiftUI
 struct CaloriasView: View {
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(spacing: 20) {
                 // ... (código anterior)
                 ZStack {
                     Rectangle()
                         .foregroundColor(Color.green) // o cualquier otro color que prefieras
                         .cornerRadius(10) // ajusta el valor según tus necesidades
-
-                    Text("¿Qué son las calorias?")
+                    
+                    Text("¿Qué Son Las Calorias?")
                         .font(.title)
                         .fontWeight(.bold)
                         .fixedSize(horizontal: false, vertical: true)
+                        .padding(.vertical, 5)
                 }
-                            Text("Las calorías son una medida de la energía que se obtiene de los alimentos. Son esenciales para el funcionamiento adecuado del cuerpo y se pueden encontrar en diferentes tipos de alimentos, como carbohidratos, proteínas y grasas.")
-
-                            Divider()
-
-                HStack {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Consumo diario recomendado")
-                            .font(.title)
-                            .fontWeight(.bold)
+                
+                Text("Las calorías son una medida de la energía que se obtiene de los alimentos. Son esenciales para el funcionamiento adecuado del cuerpo y se pueden encontrar en diferentes tipos de alimentos, como carbohidratos, proteínas y grasas.")
+                    .multilineTextAlignment(.leading)
+                
+                Divider()
+                
+                VStack{
+                    
+                    Text("Consumo Diario Recomendado")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    HStack {
+                            
                         Text("El consumo diario recomendado de calorías puede variar según la edad, el sexo, el nivel de actividad física y otros factores. Es importante mantener un equilibrio adecuado para garantizar un estilo de vida saludable.")
+                            .multilineTextAlignment(.leading)
+                        
+                        Image("calorias") // Reemplaza "calories_image" con el nombre real de tu imagen en los assets
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 120, height: 120)
                     }
-
-                    Spacer()
-
-                    Image("calorias") // Reemplaza "calories_image" con el nombre real de tu imagen en los assets
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 150, height: 150)
                 }
                 Divider()
-                Text("¿Cuantas calorias necesitas?")
+                Text("¿Cuántas Calorias Necesitas?")
                     .font(.title)
                     .fontWeight(.bold)
-                Text("El consumo de calorias depende de ...")
-                HStack (alignment: .center, spacing: 20) {
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.red)
-                            .frame(width: 100, height: 100)
-                        Text("Edad")
-                            .foregroundColor(.white)
-                    }
+                Text("Tu consumo de calorias depende de:")
+                VStack{
+                    HStack (alignment: .center) {
+                        
+                        Spacer()
 
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.orange)
-                            .frame(width: 100, height: 100)
-                        Text("Genero")
-                            .foregroundColor(.white)
-                    }
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.green.opacity(0.9))
+                                .frame(width: 65, height: 65)
+                                .cornerRadius(5)
+                            Text("Edad")
+                                .foregroundColor(.white)
+                        }
+                        
+                        Spacer()
 
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.yellow)
-                            .frame(width: 100, height: 100)
-                        Text("Altura")
-                            .foregroundColor(.white)
-                    }
-                }
-                HStack (alignment: .center, spacing: 20) {
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.green)
-                            .frame(width: 100, height: 100)
-                        Text("Peso")
-                            .foregroundColor(.white)
-                    }
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.green.opacity(0.9))
+                                .frame(width: 65, height: 65)
+                                .cornerRadius(5)
+                            Text("Genero")
+                                .foregroundColor(.white)
+                        }
+                        
+                        Spacer()
 
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.blue)
-                            .frame(width: 100, height: 100)
-                        Text("Pubertad")
-                            .foregroundColor(.white)
-                    }
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.green.opacity(0.9))
+                                .frame(width: 65, height: 65)
+                                .cornerRadius(5)
+                            Text("Altura")
+                                .foregroundColor(.white)
+                        }
+                        
+                        Spacer()
+                        
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.green.opacity(0.9))
+                                .frame(width: 65, height: 65)
+                                .cornerRadius(5)
+                            Text("Peso")
+                                .foregroundColor(.white)
+                        }
+                        
+                        Spacer()
 
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.purple)
-                            .frame(width: 100, height: 100)
-                        Text("Actividad Fisica")
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                                    .lineLimit(nil)
                     }
+                    
+                    
+                    
+                    HStack (alignment: .center) {
+                        
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.green.opacity(0.9))
+                                .frame(width: 150, height: 65)
+                                .cornerRadius(5)
+                            Text("Actividad Fisica")
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                                .lineLimit(nil)
+                        }
+                        
+
+                    }
+                    
                 }
             }
-            .padding()
-
+            .multilineTextAlignment(.center)
+            .padding(.horizontal)
         }
     }
 }
